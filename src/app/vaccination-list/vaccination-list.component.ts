@@ -16,6 +16,7 @@ export class VaccinationListComponent implements OnInit {
       new Vaccination(
         1,
         new Date(2021, 4, 18),
+        "08:00-17:00",
         40,
         4,
         [
@@ -86,6 +87,7 @@ export class VaccinationListComponent implements OnInit {
       new Vaccination(
         2,
         new Date(2021, 5, 28),
+        "08:00-17:00",
         40,
         3,
         [
