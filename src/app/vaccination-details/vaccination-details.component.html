@@ -1,31 +1,41 @@
-<div class="ui grid" *ngIf="vaccination">
-  <div class="twelve wide column">
-    <h1 class="ui header">Corona Impfung {{ vaccination.places[1] }}</h1>
-    <script>
-      console.log(vaccination.places);
-    </script>
-    <h3 class="ui header">Impfstoff: {{ vaccination.vaccine }}</h3>
-    <h3 class="ui header">Ort:</h3>
-    <span *ngFor="let place of vaccination.places; last as l">
+<div class=box>
+  <div class="ui grid" *ngIf="vaccination">
+    <div class="twelve wide column">
+      <h1 *ngFor="let place of vaccination.places; last as l" class="ui header">Impfung in {{ place.place }} am
+        {{ vaccination.date.getDay() }}.{{ vaccination.date.getMonth() }}.{{ vaccination.date.getFullYear() }}
+      </h1>
+      <h3 class="ui header">Impfstoff: {{ vaccination.vaccine }}</h3>
+      <p>Anzahl der möglichen Registrierungen: {{ vaccination.max_registrations }}</p>
+      <p>Anzahl der noch verfügbaren Termine: {{ vaccination.max_registrations - vaccination.registrations }}</p>
+      <div class="ui divider"></div>
+      <h3 class="ui header">Ort:</h3>
+      <span *ngFor="let place of vaccination.places; last as l">
 {{ place.title }}:<br> {{ place.street }} {{ place.number }} {{ place.plz }} {{ place.place }}<br>{{ place.district }}<span *ngIf="!l">,
 </span>
-    </span>
-    <div class="ui divider"></div>
-    <div class="ui grid">
-      <div class="four wide column">
+      </span>
 
+      <h3 class="ui header">Datum:</h3>
+      <div class="date"> Datum:
+        {{ vaccination.date.getDay() }}.{{ vaccination.date.getMonth() }}.{{ vaccination.date.getFullYear() }} </div>
+      <div>Zugang zur Impfung zwischen: {{ vaccination.time}}</div>
+
+
+
+      <div class="ui grid">
+        <div class="four wide column">
+
+        </div>
       </div>
+
+      <h3 class="ui header">Beschreibung</h3>
+      {{ vaccination.description }}
+
+
     </div>
+    <div class="twelve wide column">
+      <button (click)="showVaccinationList()" class="ui white button">Zurück zur Übersicht</button>
+      <button  class="ui blue button">Anmeldung zur Impfung</button>
+    </div>
+
   </div>
-  <div class="sixteen wide column">
-    <h3 class="ui header">Beschreibung</h3>
-    {{ vaccination.description }}
-  </div>
-  <button (click)="showVaccinationList()" class="ui blue button">Zurück zur Übersicht</button>
 </div>
-
-
-
-<span *ngFor="let place of vaccination.places; last as l">
-{{ place.title }}:<br> {{ place.street }} {{ place.number }} {{ place.plz }} {{ place.place }}<br>{{ place.district }}<span *ngIf="!l">,
-</span>
