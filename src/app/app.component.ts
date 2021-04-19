@@ -1,11 +1,16 @@
 import { Component, VERSION } from "@angular/core";
+import { Vaccination } from "./shared/vaccination";
 
 @Component({
   selector: "kwm-root",
   // hier wird die Komponente vaccination-list aufgerufen
-  template: '<kwm-vaccination-list></kwm-vaccination-list>',
-  styleUrls: []
+  //welche Ansicht soll gerade aktiv sein
+  template: `<kwm-vaccination-list *ngIf="listOn"></kwm-vaccination-list>
+  <kwm-vaccination-details *ngIf="detailsOn" [vaccination]="vaccination"></kwm-vaccination-details>`
 })
 export class AppComponent {
-  name = "Angular " + VERSION.major;
+  listOn = true;
+  detailsOn = false;
+
+  vaccination: Vaccination;
 }

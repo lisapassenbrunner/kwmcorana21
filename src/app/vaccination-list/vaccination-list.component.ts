@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { Person } from "../shared/person";
 import { Place } from "../shared/place";
 import { Vaccination } from "../shared/vaccination";
@@ -10,6 +10,8 @@ import { Vaccination } from "../shared/vaccination";
 })
 export class VaccinationListComponent implements OnInit {
   vaccinations: Vaccination[];
+
+  @Output() showDetailsEvent = new EventEmitter<Vaccination>();
 
   ngOnInit() {
     this.vaccinations = [
@@ -144,5 +146,10 @@ export class VaccinationListComponent implements OnInit {
         "Corona Impfung für über 65 Jährige"
       )
     ];
+  }
+
+  // Detail View
+  showDetails(vaccination: Vaccination){
+    this.showDetailsEvent.emit(vaccination);
   }
 }

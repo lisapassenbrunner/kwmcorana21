@@ -1,19 +1,5 @@
 <div class="ui middle aligned selection divided list">
-  <a *ngFor="let vaccination of vaccinations" class="item">
-    <div class="content">
-      <div class="header">{{ vaccination.description }}</div>
-      <div class="description"> Impfstoff: {{ vaccination.vaccine }} </div>
-      <div class="date"> Datum:
-        {{ vaccination.date.getDay() }}.{{ vaccination.date.getMonth() }}.{{ vaccination.date.getFullYear() }} </div>
-      <div class="metadata">
-        <div class="time">Uhrzeit: {{ vaccination.time }}</div>
-        <div class="place">Ort:</div>
-        <span *ngFor="let place of vaccination.places; last as l">
-{{ place.title }}:<br> {{ place.street }} {{ place.number }} {{ place.plz }} {{ place.place }}<br>{{ place.district }}<span *ngIf="!l">,
-</span>
-        </span>
-      </div>
-
-    </div>
+  <a *ngFor="let vaccination of vaccinations" class="item kwm-vaccination-list-item" [vaccination]="vaccination"
+    (click)="showDetails(vaccination)">
   </a>
 </div>
