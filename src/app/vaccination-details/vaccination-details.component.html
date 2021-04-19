@@ -1,11 +1,19 @@
 <div class="ui grid" *ngIf="vaccination">
   <div class="twelve wide column">
-    <h1 class="ui header">{{ vaccination.description }}</h1>
-    <h3 class="ui header">{{ vaccination.vaccine }}</h3>
+    <h1 class="ui header">Corona Impfung {{ vaccination.places[1] }}</h1>
+    <script>
+      console.log(vaccination.places);
+    </script>
+    <h3 class="ui header">Impfstoff: {{ vaccination.vaccine }}</h3>
+    <h3 class="ui header">Ort:</h3>
+    <span *ngFor="let place of vaccination.places; last as l">
+{{ place.title }}:<br> {{ place.street }} {{ place.number }} {{ place.plz }} {{ place.place }}<br>{{ place.district }}<span *ngIf="!l">,
+</span>
+    </span>
     <div class="ui divider"></div>
     <div class="ui grid">
       <div class="four wide column">
-        
+
       </div>
     </div>
   </div>
@@ -13,4 +21,11 @@
     <h3 class="ui header">Beschreibung</h3>
     {{ vaccination.description }}
   </div>
+  <button (click)="showVaccinationList()" class="ui blue button">Zurück zur Übersicht</button>
 </div>
+
+
+
+<span *ngFor="let place of vaccination.places; last as l">
+{{ place.title }}:<br> {{ place.street }} {{ place.number }} {{ place.plz }} {{ place.place }}<br>{{ place.district }}<span *ngIf="!l">,
+</span>

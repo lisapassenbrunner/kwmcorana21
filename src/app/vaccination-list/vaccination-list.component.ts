@@ -149,7 +149,7 @@ export class VaccinationListComponent implements OnInit {
   }
 
   // Detail View
-  showDetails(vaccination: Vaccination){
+  showDetails(vaccination: Vaccination) {
     this.showDetailsEvent.emit(vaccination);
   }
 }

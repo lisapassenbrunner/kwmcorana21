@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Vaccination } from '../shared/vaccination';
 
 @Component({
@@ -6,12 +6,12 @@ import { Vaccination } from '../shared/vaccination';
   templateUrl: './vaccination-details.component.html',
   styleUrls: ['./vaccination-details.component.css']
 })
-export class VaccinationDetailsComponent implements OnInit {
+export class VaccinationDetailsComponent  {
 
   @Input() vaccination: Vaccination
-  
+  @Output() showListEvent = new EventEmitter<any>();
 
-  ngOnInit() {
+  showVaccinationList(){
+    this.showListEvent.emit();
   }
-
 }
