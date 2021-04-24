@@ -2,7 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Place } from '../shared/place';
 
 @Component({
-  selector: 'app-place-list',
+  selector: 'kwm-place-list',
   templateUrl: './place-list.component.html',
   styleUrls: ['./place-list.component.css']
 })
