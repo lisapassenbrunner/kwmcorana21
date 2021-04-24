@@ -5,13 +5,7 @@ import { Vaccination } from "./shared/vaccination";
   selector: "kwm-root",
   // hier wird die Komponente vaccination-list aufgerufen
   //welche Ansicht soll gerade aktiv sein
-  template: `
-    <kwm-vaccination-list *ngIf="listOn" (showDetailsEvent)="showDetails($event)"></kwm-vaccination-list>
-    <kwm-vaccination-details
-      *ngIf="detailsOn"
-      [vaccination]="vaccination" (showListEvent)="showList()"
-    ></kwm-vaccination-details>
-  `
+  templateUrl: "./app.component.html"
 })
 export class AppComponent {
   listOn = true;
