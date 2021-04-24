@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from "@angular/core";
 import { Vaccination } from "../shared/vaccination";
 
 @Component({
-  selector: "a.kwm-vaccination-list-item",
+  selector: "kwm-vaccination-list-item",
   templateUrl: "./vaccination-list-item.component.html",
   styleUrls: ["./vaccination-list-item.component.css"]
 })

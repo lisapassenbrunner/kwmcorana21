@@ -1,0 +1,11 @@
+    <div class="content">
+      <div class="header">{{ place.title }}</div>
+      <div class="metadata">
+        <div class="place">Ort:</div>
+        <span>
+{{ place.title }}:<br> {{ place.street }} {{ place.number }} {{ place.plz }} {{ place.place }}<br>{{ place.district }}<span *ngIf="!l">,
+</span>
+        </span>
+      </div>
+
+    </div>

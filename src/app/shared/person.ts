@@ -7,6 +7,7 @@ export class Person{
     public gender: string, 
     public dateOfBirth: Date, 
     public email: string, 
+     public password: string,
     public phoneNumber: string, 
     public administrator: boolean,
     public vaccinated?: boolean 
