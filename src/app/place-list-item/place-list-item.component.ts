@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Place } from "../shared/place";
+import { Vaccination } from "../shared/vaccination";
 
 @Component({
   selector: "a.kwm-place-list-item",
@@ -8,6 +9,7 @@ import { Place } from "../shared/place";
 })
 export class PlaceListItemComponent implements OnInit {
   @Input() place: Place;
+  @Input() vaccination: Vaccination;
   constructor() {}
 
   ngOnInit() {}

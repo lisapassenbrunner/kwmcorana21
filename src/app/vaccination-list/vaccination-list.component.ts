@@ -22,18 +22,6 @@ export class VaccinationListComponent implements OnInit {
         40,
         4,
         [
-          new Place(
-            1,
-            "Impfstation Sporthalle Niederneukirchen",
-            4491,
-            "Niederneukirchen",
-            "Ruprechtshofen",
-            33,
-            "Oesterreich",
-            "Oberoesterreich"
-          )
-        ],
-        [
           new Person(
             1,
             312207010000,
@@ -96,18 +84,6 @@ export class VaccinationListComponent implements OnInit {
         "08:00-17:00",
         40,
         3,
-        [
-          new Place(
-            2,
-            "Impfstation FH Hagenberg",
-            4032,
-            "Hagenberg",
-            "Softwarpark",
-            23,
-            "Oesterreich",
-            "Oberoesterreich"
-          )
-        ],
         [
           new Person(
             4,

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Place } from '../shared/place';
 import { Vaccination } from '../shared/vaccination';
 
 @Component({
@@ -9,9 +10,16 @@ import { Vaccination } from '../shared/vaccination';
 export class VaccinationDetailsComponent  {
 
   @Input() vaccination: Vaccination
+  @Input() place: Place
   @Output() showListEvent = new EventEmitter<any>();
+  @Output() showPlaceDetailsEvent = new EventEmitter<any>();
 
   showVaccinationList(){
     this.showListEvent.emit();
+  }
+
+  showPlaceDetails(place:Place){
+    console.log("yea");
+    this.showPlaceDetailsEvent.emit();
   }
 }

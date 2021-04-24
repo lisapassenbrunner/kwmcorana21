@@ -1,7 +1,7 @@
 <div class=box>
   <div class="ui grid" *ngIf="vaccination">
     <div class="twelve wide column">
-      <h1 *ngFor="let place of vaccination.places; last as l" class="ui header">Impfung in {{ place.place }} am
+      <h1  class="ui header">Impfung in  am
         {{ vaccination.date.getDay() }}.{{ vaccination.date.getMonth() }}.{{ vaccination.date.getFullYear() }}
       </h1>
       <h3 class="ui header">Impfstoff: {{ vaccination.vaccine }}</h3>
@@ -9,10 +9,7 @@
       <p>Anzahl der noch verfügbaren Termine: {{ vaccination.max_registrations - vaccination.registrations }}</p>
       <div class="ui divider"></div>
       <h3 class="ui header">Ort:</h3>
-      <span *ngFor="let place of vaccination.places; last as l">
-{{ place.title }}:<br> {{ place.street }} {{ place.number }} {{ place.plz }} {{ place.place }}<br>{{ place.district }}<span *ngIf="!l">,
-</span>
-      </span>
+      
 
       <h3 class="ui header">Datum:</h3>
       <div class="date"> Datum:
@@ -33,7 +30,7 @@
 
     </div>
     <div class="twelve wide column">
-      <button (click)="showVaccinationList()" class="ui white button">Zurück zur Übersicht</button>
+      <button (click)="showPlaceDetails(place)" class="ui white button">Zurück zur Übersicht</button>
       <button  class="ui blue button">Anmeldung zur Impfung</button>
     </div>
 
