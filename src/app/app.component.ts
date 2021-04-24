@@ -8,7 +8,10 @@ import { Vaccination } from "./shared/vaccination";
   //welche Ansicht soll gerade aktiv sein
   template: `
     <kwm-place-list *ngIf="placeListOn" (showPlaceDetailsEvent)="showPlaceDetails($event)"></kwm-place-list>
-
+    <kwm-place-details
+      *ngIf="placeDetailsOn"
+      [place]="place" (showPlaceListEvent)="showPlaceList()"
+    ></kwm-place-details>
     
     <kwm-vaccination-list *ngIf="listOn" (showDetailsEvent)="showDetails($event)"></kwm-vaccination-list>
     <kwm-vaccination-details
@@ -50,6 +53,7 @@ export class AppComponent {
   }
 
   showPlaceDetails(place: Place){
+    this.place = place;
     this.placeDetailsOn = true;
     this.placeListOn = false;
     this.detailsOn = false;
