@@ -41,7 +41,8 @@ export class VaccinationListComponent implements OnInit {
             "Passenbrunner",
             "weiblich",
             new Date(2021, 4, 18),
-            "email@email.com",
+            "email7@email.com",
+            "secret",
             "06504394829",
             false,
             false
@@ -53,7 +54,8 @@ export class VaccinationListComponent implements OnInit {
             "Passenbrunner",
             "weiblich",
             new Date(2021, 4, 18),
-            "email@email.com",
+            "email6@email.com",
+            "secret",
             "06704394829",
             false,
             false
@@ -65,7 +67,8 @@ export class VaccinationListComponent implements OnInit {
             "Passenbrunner",
             "weiblich",
             new Date(2021, 4, 18),
-            "email@email.com",
+            "email5@email.com",
+            "secret",
             "06804394829",
             false,
             false
@@ -77,7 +80,8 @@ export class VaccinationListComponent implements OnInit {
             "Passenbrunner",
             "weiblich",
             new Date(2021, 4, 18),
-            "email@email.com",
+            "email4@email.com",
+            "secret",
             "06505674829",
             false,
             false
@@ -112,7 +116,8 @@ export class VaccinationListComponent implements OnInit {
             "Passenbrunner",
             "weiblich",
             new Date(2021, 4, 18),
-            "email@email.com",
+            "email3@email.com",
+            "secret",
             "06504394829",
             false,
             false
@@ -124,7 +129,8 @@ export class VaccinationListComponent implements OnInit {
             "Passenbrunner",
             "weiblich",
             new Date(2021, 4, 18),
-            "email@email.com",
+            "email2@email.com",
+            "secret",
             "06704394829",
             false,
             false
@@ -136,7 +142,8 @@ export class VaccinationListComponent implements OnInit {
             "Passenbrunner",
             "weiblich",
             new Date(2021, 4, 18),
-            "email@email.com",
+            "email1@email.com",
+            "secret",
             "06804394829",
             false,
             false
@@ -149,7 +156,7 @@ export class VaccinationListComponent implements OnInit {
   }
 
   // Detail View
-  showDetails(vaccination: Vaccination){
+  showDetails(vaccination: Vaccination) {
     this.showDetailsEvent.emit(vaccination);
   }
 }
