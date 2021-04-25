@@ -8,7 +8,7 @@ import { Vaccination } from "./vaccination";
 
 @Injectable()
 export class VaccinationService {
-  private api = "http://kmcorana.s1810456024.student.kwmhgb.at/api";
+  private api = "https://kwmcorana.s1810456024.student.kwmhgb.at/api";
   vaccinations: Vaccination[];
 
   constructor(private http: HttpClient) {}
@@ -21,10 +21,12 @@ export class VaccinationService {
   }
 
   getSingle(description: string): Observable<Vaccination> {
+   
     return this.http
       .get<Vaccination>(`${this.api}/vaccinations/${description}`)
       .pipe(retry(3))
       .pipe(catchError(this.errorHandler));
+      
   }
   create(vaccination: Vaccination): Observable<any> {
     return this.http

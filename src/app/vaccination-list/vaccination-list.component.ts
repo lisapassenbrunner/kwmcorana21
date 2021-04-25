@@ -18,7 +18,8 @@ export class VaccinationListComponent implements OnInit {
 
   ngOnInit() {
     //service
-    this.vaccinations = this.kwm.getAll();
+    this.kwm.getAll().subscribe(res => this.vaccinations = res);
+    console.log("hi");
   }
 
   // Detail View
