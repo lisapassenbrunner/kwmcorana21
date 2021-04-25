@@ -8,7 +8,7 @@ export class Vaccination {
     public time: string,
     public max_registrations: number,
     public registrations: number,
-    public places: Place[],
+    public place: Place[],
     public people: Person[],
     public vaccine?: string,
     public description?: string

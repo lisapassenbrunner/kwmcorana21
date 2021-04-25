@@ -1,16 +1,10 @@
-
-    <div class="content">
-      <div class="header">{{ vaccination.description }}</div>
-      <div class="description"> Impfstoff: {{ vaccination.vaccine }} </div>
-      <div class="date"> Datum:
-        {{ vaccination.date.getDay() }}.{{ vaccination.date.getMonth() }}.{{ vaccination.date.getFullYear() }} </div>
-      <div class="metadata">
-        <div class="time">Uhrzeit: {{ vaccination.time }}</div>
-        <div class="place">Ort:</div>
-        <span *ngFor="let place of vaccination.places; last as l">
-{{ place.title }}:<br> {{ place.street }} {{ place.number }} {{ place.plz }} {{ place.place }}<br>{{ place.district }}<span *ngIf="!l">,
-</span>
-        </span>
-      </div>
-
-    </div>
+<div class="content">
+  <div class="header">{{ vaccination.description }}</div>
+  <div class="description"> Impfstoff: {{ vaccination.vaccine }} </div>
+  <div class="date"> Datum:
+    {{ vaccination.date }} </div>
+  <div class="metadata">
+    <div class="time">Uhrzeit: {{ vaccination.time }}</div>
+    <div class="place">Ort:</div>
+  <div>{{vaccination["place"]["title"]}}</div>
+</div>

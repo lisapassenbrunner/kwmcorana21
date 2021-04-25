@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { Place } from "../shared/place";
 import { Vaccination } from "../shared/vaccination";
 
 @Component({
@@ -8,6 +9,11 @@ import { Vaccination } from "../shared/vaccination";
 })
 export class VaccinationListItemComponent implements OnInit {
   @Input() vaccination: Vaccination;
+ 
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.vaccination["place"]["id"]);
+ 
+  }
 }
+
