@@ -11,6 +11,7 @@ import { VaccinationFactory } from "../shared/vaccination-factory";
 })
 export class VaccinationDetailsComponent implements OnInit {
   vaccination: Vaccination = VaccinationFactory.empty();
+  
 
   constructor(
     private kwm: VaccinationService,
@@ -18,9 +19,10 @@ export class VaccinationDetailsComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    console.log(this.vaccination);
     const params = this.route.snapshot.params;
-    this.kwm.getSingle(params['description']).subscribe(v => this.vaccination = v);
+    this.kwm.getSingle(params['description']).subscribe(b => this.vaccination = b);
   }
 
   removeVaccination() {

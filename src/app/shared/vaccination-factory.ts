@@ -28,8 +28,7 @@ export class VaccinationFactory {
   }
 
   static fromObject(rawVaccination: any): Vaccination {
-    return
-      new Vaccination(
+    return new Vaccination(
         rawVaccination.id,
         typeof rawVaccination.date === "string"
           ? new Date(rawVaccination.date)
@@ -42,6 +41,5 @@ export class VaccinationFactory {
         rawVaccination.vaccine,
         rawVaccination.description
       );
-    return null;
   }
 }
