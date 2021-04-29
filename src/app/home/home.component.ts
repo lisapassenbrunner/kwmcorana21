@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-home',
+  selector: 'kwm-home',
   template: `
 <div class="ui container">
 <h1>Anmeldung zur Impfung Österreich</h1>

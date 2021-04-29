@@ -4,6 +4,7 @@ import { Place } from "./place";
 export class Vaccination {
   constructor(
     public id: number,
+    public code: string,
     public date: Date,
     public time: string,
     public max_registrations: number,

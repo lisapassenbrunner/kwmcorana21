@@ -1,7 +1,8 @@
 <div class=box>
   <div class="ui grid" *ngIf="vaccination">
     <div class="twelve wide column">
-      <h1 class="ui header">Impfung am {{vaccination.description}}
+      <h1 class="ui header">Impfung am {{vaccination.date}} in 
+        {{vaccination["place"]["place"]}}
       
       </h1>
       <h3 class="ui header">Impfstoff: {{ vaccination.vaccine }}</h3>
@@ -9,14 +10,14 @@
       <p>Anzahl der noch verfügbaren Termine: {{ vaccination.max_registrations - vaccination.registrations }}</p>
       <div class="ui divider"></div>
       <h3 class="ui header">Ort:</h3>
-      <span *ngFor="let place of vaccination.place; last as l">
-{{ place.title }}:<br> {{ place.street }} {{ place.number }} {{ place.plz }} {{ place.place }}<br>{{ place.district }}<span *ngIf="!l">,
+      <span>
+{{vaccination["place"]["title"]}}:<br> {{vaccination["place"]["street"]}} {{vaccination["place"]["number"]}} {{vaccination["place"]["plz"]}} {{vaccination["place"]["place"]}}<br>{{vaccination["place"]["district"]}}<span>
 </span>
       </span>
 
       <h3 class="ui header">Datum:</h3>
       <div class="date"> Datum:
-        {{ vaccination.date.getDay() }}.{{ vaccination.date.getMonth() }}.{{ vaccination.date.getFullYear() }} </div>
+        {{vaccination.date}} </div>
       <div>Zugang zur Impfung zwischen: {{ vaccination.time}}</div>
 
 

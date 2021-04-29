@@ -22,13 +22,13 @@ export class VaccinationDetailsComponent implements OnInit {
   ngOnInit() {
     console.log(this.vaccination);
     const params = this.route.snapshot.params;
-    this.kwm.getSingle(params['description']).subscribe(b => this.vaccination = b);
+    this.kwm.getSingle(params['code']).subscribe(b => this.vaccination = b);
   }
 
   removeVaccination() {
     if (confirm("Impfung wirklich löschen?")) {
       this.kwm
-        .remove(this.vaccination.id)
+        .remove(this.vaccination.code)
         .subscribe(res =>
           this.router.navigate(["../"], { relativeTo: this.route })
         );

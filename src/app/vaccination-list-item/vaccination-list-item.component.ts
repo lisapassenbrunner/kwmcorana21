@@ -12,7 +12,7 @@ export class VaccinationListItemComponent implements OnInit {
  
 
   ngOnInit() {
-    console.log(this.vaccination["place"]["id"]);
+   
  
   }
 }

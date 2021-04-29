@@ -2,9 +2,9 @@ import { Vaccination } from "./vaccination";
 
 export class VaccinationFactory {
   static empty(): Vaccination {
-    console.log("Hi");
     return new Vaccination(
       0,
+      "",
       new Date(),
       "",
       0,
@@ -30,6 +30,7 @@ export class VaccinationFactory {
   static fromObject(rawVaccination: any): Vaccination {
     return new Vaccination(
         rawVaccination.id,
+        rawVaccination.code,
         typeof rawVaccination.date === "string"
           ? new Date(rawVaccination.date)
           : rawVaccination.date,

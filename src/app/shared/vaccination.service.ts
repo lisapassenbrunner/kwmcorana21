@@ -13,16 +13,15 @@ export class VaccinationService {
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<Array<Vaccination>> {
-    console.log("jiii");
     return this.http
       .get(`${this.api}/vaccinations`)
       .pipe(retry(3))
       .pipe(catchError(this.errorHandler));
   }
 
-  getSingle(description: string): Observable<Vaccination> {
+  getSingle(code: string): Observable<Vaccination> {
     return this.http
-      .get<Vaccination>(`${this.api}/vaccinations/${description}`)
+      .get<Vaccination>(`${this.api}/vaccinations/${code}`)
       .pipe(retry(3))
       .pipe(catchError(this.errorHandler));
       
@@ -35,13 +34,13 @@ export class VaccinationService {
   }
   update(vaccination: Vaccination): Observable<any> {
     return this.http
-      .put(`${this.api}/book/${vaccination.id}`, vaccination)
+      .put(`${this.api}/book/${vaccination.code}`, vaccination)
       .pipe(retry(3))
       .pipe(catchError(this.errorHandler));
   }
-  remove(id: number): Observable<any> {
+  remove(code: string): Observable<any> {
     return this.http
-      .delete(`${this.api}/vaccination/${id}`)
+      .delete(`${this.api}/vaccination/${code}`)
       .pipe(retry(3))
       .pipe(catchError(this.errorHandler));
   }
