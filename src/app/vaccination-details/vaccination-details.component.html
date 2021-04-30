@@ -1,7 +1,7 @@
 <div class=box>
   <div class="ui grid" *ngIf="vaccination">
     <div class="twelve wide column">
-      <h1 class="ui header">Impfung am {{vaccination.date}} in 
+      <h1 class="ui header">Impfung am {{vaccination.date | date:'longDate'}} in 
         {{vaccination["place"]["place"]}}
       
       </h1>
@@ -15,9 +15,9 @@
 </span>
       </span>
 
-      <h3 class="ui header">Datum:</h3>
+      <h3 class="ui header">Zeitpunkt:</h3>
       <div class="date"> Datum:
-        {{vaccination.date}} </div>
+        {{vaccination.date | date:'longDate'}} </div>
       <div>Zugang zur Impfung zwischen: {{ vaccination.time}}</div>
 
 
