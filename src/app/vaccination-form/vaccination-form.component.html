@@ -19,13 +19,15 @@
   </div>
   <div class="field">
     <label>Datum der Impfung</label>
-    <input type="date" formControlName="date">
+    <input  formControlName="date" placeholder="MM-DD-YY">
     <div *ngIf="errors.date" class="ui negative message">{{
       errors.date }}</div>
   </div>
   <div class="field">
     <label>Zeitfenster für den Impftermin</label>
     <textarea formControlName="time" rows="1"></textarea>
+    <div *ngIf="errors.time" class="ui negative message">{{
+      errors.time }}</div>
   </div>
   <div class="field">
     <label>Maximale Anzahl an Registrierungen</label>
@@ -55,7 +57,7 @@ p; last as l" [formGroupName]="p">
         <div class="six wide field">
           <input formControlName="place" placeholder="Hagenberg">
         </div>
-        <form method="post">
+        
 	<select formConrtolName="district">
     <option value="burgenland">Burgenland</option>
     <option value="carinthia">Kärnten</option>
@@ -66,7 +68,7 @@ p; last as l" [formGroupName]="p">
     <option value="vorarlberg">Vorarlberg</option>
 		<option value="vienna">Wien</option>
 	</select>
-</form>
+
         <div class="one wide field" *ngIf="l">
           <button (click)="addPlaceControl()" class="ui large button"
 type="button">+</button>
@@ -77,5 +79,5 @@ type="button">+</button>
       }}</div>
   </div>
   <button type="submit" class="ui button"
-[disabled]="vaccinationForm.invalid">Speichern</button>
+>Speichern</button>
 </form>

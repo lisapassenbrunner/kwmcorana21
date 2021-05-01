@@ -31,7 +31,7 @@ export class VaccinationFactory {
     return new Vaccination(
         rawVaccination.id,
         rawVaccination.code,
-        typeof rawVaccination.date === "string"
+        typeof rawVaccination.date === 'string'
           ? new Date(rawVaccination.date)
           : rawVaccination.date,
         rawVaccination.time,

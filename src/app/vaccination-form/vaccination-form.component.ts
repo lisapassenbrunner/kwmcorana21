@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, FormArray, Validators, FormControl
 import { VaccinationFactory } from '../shared/vaccination-factory';
 import { VaccinationService } from '../shared/vaccination.service';
 import { Vaccination } from '../shared/vaccination';
+import { VaccinationFormErrorMessages } from './vaccination-form-error-messages';
 
 
 @Component({
@@ -118,6 +119,7 @@ export class VaccinationFormComponent implements OnInit {
     for (const message of VaccinationFormErrorMessages) {
       const control = this.vaccinationForm.get(message.forControl);
       if (
+        
         control &&
         control.dirty &&
         control.invalid &&

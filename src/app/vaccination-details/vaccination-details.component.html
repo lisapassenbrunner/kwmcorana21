@@ -10,10 +10,12 @@
       <p>Anzahl der noch verfügbaren Termine: {{ vaccination.max_registrations - vaccination.registrations }}</p>
       <div class="ui divider"></div>
       <h3 class="ui header">Ort:</h3>
-      <span>
-{{vaccination["place"]["title"]}}:<br> {{vaccination["place"]["street"]}} {{vaccination["place"]["number"]}} {{vaccination["place"]["plz"]}} {{vaccination["place"]["place"]}}<br>{{vaccination["place"]["district"]}}<span>
-</span>
-      </span>
+      <div class="four wide column" *ngIf="vaccination.place && vaccination.place[0]">
+      <p>{{vaccination.place[0].title}}</p>
+      <p>{{vaccination.place[0].street}} {{vaccination.place[0].number}}</p>
+      <p>{{vaccination.place[0].plz}} {{vaccination.place[0].place}}</p>
+    </div>
+
 
       <h3 class="ui header">Zeitpunkt:</h3>
       <div class="date"> Datum:
