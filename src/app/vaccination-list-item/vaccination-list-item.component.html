@@ -5,6 +5,6 @@
     {{ vaccination.date }} </div>
   <div class="metadata">
     <div class="time">Uhrzeit: {{ vaccination.time }}</div>
-    <div class="place">Ort:</div>
-  <div>{{vaccination["place"]["title"]}}</div>
+    <div *ngIf="vaccination.place && vaccination.place[0]">
+      Ort: {{vaccination.place[0].place}}</div>
 </div>

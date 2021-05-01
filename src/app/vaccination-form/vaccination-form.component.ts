@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
+import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, FormArray, Validators, FormControl
 } from "@angular/forms";
 import { VaccinationFactory } from '../shared/vaccination-factory';
@@ -74,7 +74,8 @@ export class VaccinationFormComponent implements OnInit {
         place: new FormControl(place.place, [Validators.required]),
         street: new FormControl(place.street, [Validators.required]),
         number: new FormControl(place.number, [Validators.required]),
-        district: new FormControl(place.district, [Validators.required])
+        district: new FormControl(place.district, [Validators.required]),
+        state: new FormControl(place.state, [Validators.required])
       });
       this.places.push(fg);
     }
@@ -82,7 +83,7 @@ export class VaccinationFormComponent implements OnInit {
 
   addPlaceControl() {
     this.places.push(this.fb.group({ title: null, plz: null
-    , place: null, street: null, number: null, district: null }));
+    , place: null, street: null, number: null, district: null, state: null }));
   }
 
   submitForm() {
@@ -93,10 +94,10 @@ export class VaccinationFormComponent implements OnInit {
 
     const vaccination: Vaccination = VaccinationFactory.fromObject(this.vaccinationForm.value);
     //deep copy - did not work without??
-    vaccination.place = this.vaccinationForm.value.places;
+   vaccination.place = this.vaccinationForm.value.places;
     console.log(vaccination);
   //just copy the authors
-    vaccination.people = this.vaccination.people;
+    //vaccination.people = this.vaccination.people;
     if (this.isUpdatingVaccination) {
       this.kwm.update(vaccination).subscribe(res => {
           this.router.navigate(["../../vaccinations", vaccination.code], {

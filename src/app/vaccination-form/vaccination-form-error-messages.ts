@@ -23,24 +23,14 @@ export const VaccinationFormErrorMessages = [
     "Der Code muss mindestens 5 Zeichen enthalten"
   ),
   new ErrorMessage(
+    "Date",
+    "required",
+    "Es muss ein Datum angegeben werden"
+  ),
+  new ErrorMessage(
     "code",
     "maxlength",
     "Der Code darf höchstens 5 Zeichen haben"
   ),
-  new ErrorMessage("date", "required", "Es muss ein Datum angegeben werden"),
-  new ErrorMessage(
-    "time",
-    "required",
-    "Es muss ein Zeitfenster angegeben werden"
-  ),
-  new ErrorMessage(
-    "max_registrations",
-    "min",
-    "Minimale Anzahl an zugelassenen Personen ist 5"
-  ),
-  new ErrorMessage(
-    "max_registrations",
-    "max",
-    "Maximal 15 Personen pro Termin erlaubt"
-  )
+  new ErrorMessage('max_registrations', 'max', 'Maximal 15 Personen erlaubt')
 ];

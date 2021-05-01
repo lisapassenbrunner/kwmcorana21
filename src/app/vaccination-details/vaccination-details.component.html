@@ -1,8 +1,7 @@
 <div class=box>
   <div class="ui grid" *ngIf="vaccination">
     <div class="twelve wide column">
-      <h1 class="ui header">Impfung am {{vaccination.date | date:'longDate'}} in 
-        {{vaccination["place"]["place"]}}
+      <h1 class="ui header">Impfung am {{vaccination.date | date:'longDate'}} 
       
       </h1>
       <h3 class="ui header">Impfstoff: {{ vaccination.vaccine }}</h3>
