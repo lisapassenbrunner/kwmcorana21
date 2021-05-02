@@ -35,6 +35,15 @@ export class VaccinationDetailsComponent implements OnInit {
     }
   }
 
+  checkVaccination() {
+      this.kwm
+        .checkVaccination(this.vaccination)
+        .subscribe(res =>
+          this.router.navigate(["../"], { relativeTo: this.route })
+        );
+        
+  }
+
   /*
   @Input() vaccination: Vaccination
   @Output() showListEvent = new EventEmitter<any>();

@@ -44,6 +44,14 @@ export class VaccinationService {
       .pipe(retry(3))
       .pipe(catchError(this.errorHandler));
   }
+
+  checkVaccination(vaccination: Vaccination): Observable<any> {
+    return this.http
+      .put(`${this.api}/vaccination/${vaccination.code}`, vaccination)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
+
   private errorHandler(error: Error | any): Observable<any> {
     return throwError(error);
   }
