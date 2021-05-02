@@ -47,7 +47,7 @@ export class VaccinationService {
 
   checkVaccination(vaccination: Vaccination): Observable<any> {
     return this.http
-      .put(`${this.api}/vaccination/${vaccination.code}`, vaccination)
+      .put(`${this.api}/vaccinations/${vaccination.code}`, vaccination)
       .pipe(retry(3))
       .pipe(catchError(this.errorHandler));
   }
