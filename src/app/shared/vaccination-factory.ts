@@ -17,7 +17,6 @@ export class VaccinationFactory {
           place: "",
           street: "",
           number: 0,
-          state: "",
           district: ""
         }
       ],

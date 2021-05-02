@@ -1,74 +1,77 @@
-<h1>Impftermin erstellen</h1>
-<form class="ui large form" [formGroup]="vaccinationForm" (ngSubmit)="submitForm()">
-  <input type="hidden" name="id">
-  <div class="field" [class.disabled]="isUpdatingVaccination">
-    <label>Code der Impfung</label>
-    <input formControlName="code">
-    <div *ngIf="errors.code" class="ui negative message">{{ errors.code }}
+<div class="formbox">
+  <h1>Impftermin erstellen</h1>
+  <form class="ui large form" [formGroup]="vaccinationForm" (ngSubmit)="submitForm()">
+    <input type="hidden" name="id">
+    <div class="field" [class.disabled]="isUpdatingVaccination">
+      <label>Code der Impfung</label>
+      <input formControlName="code">
+      <div *ngIf="errors.code" class="ui negative message">{{ errors.code }}
+      </div>
     </div>
-  </div>
-  <div class="field">
-    <label>Beschreibung der Impfung</label>
-    <input formControlName="description">
-    <div *ngIf="errors.description" class="ui negative message"> {{ errors.description
-      }} </div>
-  </div>
-  <div class="field">
-    <label>Impfstoff</label>
-    <input formControlName="vaccine">
-  </div>
-  <div class="field">
-<label>Datum</label>
-<input type="date" formControlName="date">
-<div *ngIf="errors.date" class="ui negative message">{{errors.date }}</div>
-</div>
-  <div class="field">
-    <label>Zeitfenster für den Impftermin</label>
-    <input formControlName="time">
-    <div *ngIf="errors.time" class="ui negative message">{{
-      errors.time }}</div>
-  </div>
-  <div class="field">
-    <label>Maximale Anzahl an Registrierungen</label>
-    <input type="number" formControlName="max_registrations">
-    <div *ngIf="errors.max_registrations" class="ui negative message">{{ errors.max_registrations
-      }}</div>
-  </div>
+    <div class="field">
+      <label>Beschreibung der Impfung</label>
+      <input formControlName="description">
+      <div *ngIf="errors.description" class="ui negative message"> {{ errors.description
+        }} </div>
+    </div>
+    <div class="field">
+      <label>Impfstoff</label>
+      <input formControlName="vaccine">
+    </div>
+    <div class="field">
+      <label>Datum</label>
+      <input type="date" formControlName="date">
+      <div *ngIf="errors.date" class="ui negative message">{{errors.date }}</div>
+    </div>
+    <div class="field">
+      <label>Zeitfenster für den Impftermin</label>
+      <input formControlName="time">
+      <div *ngIf="errors.time" class="ui negative message">{{
+        errors.time }}</div>
+    </div>
+    <div class="field">
+      <label>Maximale Anzahl an Registrierungen</label>
+      <input type="number" formControlName="max_registrations">
+      <div *ngIf="errors.max_registrations" class="ui negative message">{{ errors.max_registrations
+        }}</div>
+    </div>
 
-  <div class="field">
-    <label>Ort</label>
-    <div formArrayName="places">
-      <div class="fields" *ngFor="let control of places?.controls; index as
+    <div class="field">
+      <div formArrayName="places">
+        <div class="fields" *ngFor="let control of places?.controls; index as
 p; last as l" [formGroupName]="p">
-        <input type="hidden" name="id">
-        <div class="six wide field">
-          <input formControlName="title" placeholder="Impfstelle Hagenberg">
+          <input type="hidden" name="id">
+          <div class="six wide field">
+            <label>Name der Impfstelle</label>
+            <input formControlName="title" placeholder="Titel">
+          </div>
+          <div class="six wide field">
+            <label>Straße</label>
+            <input formControlName="street" placeholder="Straße">
+          </div>
+          <div class="three wide field">
+            <label>Nummer</label>
+            <input  formControlName="number" placeholder="Nummer">
+          </div>
+          <div class="three wide field">
+            <label>PLZ</label>
+            <input  formControlName="plz" placeholder="PLZ">
+          </div>
+          <div class="six wide field">
+            <label>Ort</label>
+            <input formControlName="place" placeholder="Ort">
+          </div>
+          <div class="six wide field">
+            <label>Bundesland</label>
+            <input formControlName="district" placeholder="Bundesland">
+          </div>
         </div>
-        <div class="six wide field">
-          <input formControlName="street" placeholder="Straße">
-        </div>
-        <div class="six wide field">
-          <input type="number" formControlName="number" placeholder="33">
-        </div>
-        <div class="six wide field">
-          <input type="number" formControlName="plz" placeholder="4491">
-        </div>
-        <div class="six wide field">
-          <input formControlName="place" placeholder="Hagenberg">
-        </div>
-        <div class="six wide field">
-          <input formControlName="district" placeholder="Oberösterreich">
-        </div>
-        <div class="six wide field">
-          <input formControlName="state" placeholder="Österreich">
-        </div>
-
-        </div>
+      </div>
+      <div *ngIf="errors.places" class="ui negative message">{{ errors.places
+        }}</div>
     </div>
-    <div *ngIf="errors.places" class="ui negative message">{{ errors.places
-      }}</div>
-  </div>
-  
-  <button type="submit" class="ui button"
+
+    <button type="submit" class="ui button" [disabled]="vaccinationForm.invalid"
 >Speichern</button>
-</form>
+  </form>
+</div>

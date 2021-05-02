@@ -6,6 +6,5 @@ export class Place{
     public place: string, 
     public street: string, 
     public number: number, 
-    public state: string, 
     public district: string){}
 }

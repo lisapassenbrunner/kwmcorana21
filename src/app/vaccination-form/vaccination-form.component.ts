@@ -49,7 +49,7 @@ export class VaccinationFormComponent implements OnInit {
     vaccine: this.vaccination.vaccine,
     code: [
       this.vaccination.code,[
-        Validators.required,
+          Validators.required,
           Validators.minLength(5),
           Validators.maxLength(5)
       ]
@@ -74,8 +74,7 @@ export class VaccinationFormComponent implements OnInit {
         place: new FormControl(place.place, [Validators.required]),
         street: new FormControl(place.street, [Validators.required]),
         number: new FormControl(place.number, [Validators.required]),
-        district: new FormControl(place.district, [Validators.required]),
-        state: new FormControl(place.state, [Validators.required])
+        district: new FormControl(place.district, [Validators.required])
       });
       this.places.push(fg);
     }
@@ -105,8 +104,6 @@ export class VaccinationFormComponent implements OnInit {
       });
     });
   } else {
-        //vaccination.user_id = 1; // jsut for testing
-  // console.log(vaccination);
         this.kwm.create(vaccination).subscribe(res => {
           this.vaccination = VaccinationFactory.empty();
           this.vaccinationForm.reset(VaccinationFactory.empty());
@@ -116,7 +113,6 @@ export class VaccinationFormComponent implements OnInit {
   }
   updateErrorMessages() {
     console.log("Is invalid? " + this.vaccinationForm.invalid);
-    this.errors = {};
     for (const message of VaccinationFormErrorMessages) {
       const control = this.vaccinationForm.get(message.forControl);
       if (

@@ -24,7 +24,6 @@ export class VaccinationService {
       .get<Vaccination>(`${this.api}/vaccinations/${code}`)
       .pipe(retry(3))
       .pipe(catchError(this.errorHandler));
-      
   }
   create(vaccination: Vaccination): Observable<any> {
     return this.http
@@ -35,7 +34,7 @@ export class VaccinationService {
 
   update(vaccination: Vaccination): Observable<any> {
     return this.http
-      .put(`${this.api}/book/${vaccination.code}`, vaccination)
+      .put(`${this.api}/vaccination/${vaccination.code}`, vaccination)
       .pipe(retry(3))
       .pipe(catchError(this.errorHandler));
   }
