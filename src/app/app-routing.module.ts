@@ -4,6 +4,7 @@ import { VaccinationDetailsComponent } from "./vaccination-details/vaccination-d
 import { VaccinationListComponent } from "./vaccination-list/vaccination-list.component";
 import { HomeComponent } from "./home/home.component";
 import { VaccinationFormComponent } from "./vaccination-form/vaccination-form.component";
+import { RegistrationFormComponent } from "./registration-form/registration-form.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -11,7 +12,8 @@ const routes: Routes = [
   { path: "vaccinations", component: VaccinationListComponent },
   { path: "vaccinations/:code", component: VaccinationDetailsComponent },
   { path: "admin", component: VaccinationFormComponent},
-  { path: "admin/:code", component: VaccinationFormComponent}
+  { path: "admin/:code", component: VaccinationFormComponent},
+  { path: "registration", component: RegistrationFormComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
