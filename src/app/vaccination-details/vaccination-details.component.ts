@@ -35,6 +35,10 @@ export class VaccinationDetailsComponent implements OnInit {
     }
   }
 
+  checkVaccination(){
+    console.log("ich hab hergefunden");
+  }
+
   /*
   @Input() vaccination: Vaccination
   @Output() showListEvent = new EventEmitter<any>();

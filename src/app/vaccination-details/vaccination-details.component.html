@@ -40,7 +40,7 @@
         <p>SV-NR: {{person.sv_nr}}</p>
         <p *ngIf="person.vaccinated == false">Impfung erhalten: Nein</p>
         <p *ngIf="person.vaccinated == true">Impfung erhalten: Ja</p>
-        <button  class="ui tiny blue labeled icon button">
+        <button  class="ui tiny blue labeled icon button" (click)="checkVaccination()">
         <i class="check icon"></i>Impfung erhalten</button>
         <div class="ui divider"></div>
       </div>
