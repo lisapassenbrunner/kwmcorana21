@@ -30,7 +30,6 @@ export class VaccinationFactory {
           gender: "string",
           dateOfBirth: new Date(),
           email: "",
-          password: "",
           phoneNumber: "",
           administrator: false,
           vaccinated: false

@@ -36,9 +36,8 @@ export class VaccinationDetailsComponent implements OnInit {
   }
 
   checkVaccination(){
-    this.kwm.update(this.vaccination).subscribe(res => {
-      this.router.navigate(["../"], {relativeTo: this.route})
-    });
+    console.log(this.vaccination);
+    this.kwm.update(this.vaccination).subscribe();
   }
 
   /*
