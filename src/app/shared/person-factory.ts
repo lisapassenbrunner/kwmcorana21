@@ -1,4 +1,5 @@
 import { Person } from "./person";
+import { Place } from "./place";
 import { Vaccination } from "./vaccination";
 
 export class PersonFactory {
@@ -13,6 +14,30 @@ export class PersonFactory {
       "",
       "",
       false,
+      [
+        {
+          id: 0,
+          code: "",
+          date: new Date(),
+          time: "",
+          max_registrations: 0,
+          registrations: 0,
+          place: [
+        {
+          id: 0,
+          title: "",
+          plz: 0,
+          place: "",
+          street: "",
+          number: 0,
+          state: "",
+          district: ""
+        }
+      ],
+          vaccine: "",
+          description: ""
+        }
+      ],
       false
     );
   }
@@ -30,6 +55,7 @@ export class PersonFactory {
       rawPerson.email,
       rawPerson.phoneNumber,
       rawPerson.administrator,
+      rawPerson.vaccination,
       rawPerson.vaccinated
     );
   }

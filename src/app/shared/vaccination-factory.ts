@@ -21,20 +21,6 @@ export class VaccinationFactory {
           district: ""
         }
       ],
-      [
-        {
-          id: 0,
-          sv_nr: "",
-          firstName: "",
-          lastName: "",
-          gender: "string",
-          dateOfBirth: new Date(),
-          email: "",
-          phoneNumber: "",
-          administrator: false,
-          vaccinated: false
-        }
-      ],
       "",
       ""
     );
@@ -51,7 +37,6 @@ export class VaccinationFactory {
       rawVaccination.max_registrations,
       rawVaccination.registrations,
       rawVaccination.places,
-      rawVaccination.people,
       rawVaccination.vaccine,
       rawVaccination.description
     );

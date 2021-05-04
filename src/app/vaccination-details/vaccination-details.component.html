@@ -32,18 +32,7 @@
       <h3 class="ui header">Beschreibung</h3>
       {{ vaccination.description }}
 
-      <h3 class="ui header">Angemeldete Personen</h3>
-      <div class="four wide column" *ngFor="let person of vaccination.people">
-        <p><b>{{person.firstName}} {{person.lastName}}</b></p>
-        <p>Geboren am: {{person.dateOfBirth}}</p>
-        <p>E-Mail: {{person.email}}</p>
-        <p>SV-NR: {{person.sv_nr}}</p>
-        <p *ngIf="person.vaccinated == false">Impfung erhalten: Nein</p>
-        <p *ngIf="person.vaccinated == true">Impfung erhalten: Ja</p>
-        <button  class="ui tiny blue labeled icon button" (click)="checkVaccination(person.id)">
-        <i class="check icon"></i>Impfung erhalten</button>
-        <div class="ui divider"></div>
-      </div>
+    
 
 
     </div>

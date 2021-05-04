@@ -34,17 +34,7 @@ export class VaccinationDetailsComponent implements OnInit {
     }
   }
 
-  checkVaccination(id) {
-    for (let person of this.vaccination.people) {
-      if (person.id == id) {
-        if (person.vaccinated == false) {
-          person.vaccinated = true;
-          console.log(person.vaccinated);
-        }
-      }
-    }
-    this.kwm.update(this.vaccination).subscribe();
-  }
+  
 
   /*
   @Input() vaccination: Vaccination

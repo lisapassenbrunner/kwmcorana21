@@ -18,6 +18,13 @@ export class PeopleService {
       .pipe(catchError(this.errorHandler));
   }
 
+   update(person: Person): Observable<any> {
+    return this.http
+      .put(`${this.api}/registrations/${person.id}`, person)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
+
   private errorHandler(error: Error | any): Observable<any> {
     return throwError(error);
   }
