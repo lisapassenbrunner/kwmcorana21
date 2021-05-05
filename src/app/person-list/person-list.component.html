@@ -1,24 +1,8 @@
+<h3 class="ui header">Angemeldete Personen</h3>
 <div class="ui middle aligned selection divided list">
-
-
-  <h3 class="ui header">Angemeldete Personen</h3>
-      <div class="four wide column" *ngFor="let person of people">
-        <p><b>{{person.firstName}} {{person.lastName}}</b></p>
-        <p>Geboren am: {{person.dateOfBirth | date:'longDate'}}</p>
-        <p>E-Mail: {{person.email}}</p>
-        <p>Telefon: {{person.phoneNumber}}</p>
-        <p>SV-NR: {{person.sv_nr}}</p>
-        <p><b>Angemeldet für Impftermin:</b></p>
-        <p>Code der Impfung: {{person.vaccination[0].code}}</p>
-        <p>Datum der Impfung {{person.vaccination[0].date | date:'longDate'}}</p>
-        <p *ngIf="person.vaccinated == false">Impfung erhalten: Nein</p>
-        <p *ngIf="person.vaccinated == true">Impfung erhalten: Ja</p>
-        <button *ngIf="person.vaccinated == false" class="ui tiny blue labeled icon button" (click)="checkVaccination(person.id)">
-        <i class="check icon"></i>Impfung erhalten</button>
-        <button *ngIf="person.vaccinated == true" class="ui tiny blue labeled icon button" (click)="checkVaccination(person.id)">
-        <i class="check icon"></i>Impfung noch nicht erhalten</button>
-        <div class="ui divider"></div>
-      </div>
+  <a *ngFor="let person of people" class="item kwm-person-list-item" [person]="person"
+    [routerLink]="person.sv_nr">
+  </a>
 
   <div *ngIf="!people" class="ui active dimmer">
     <div class="ui large text loader">Daten werden geladen...</div>

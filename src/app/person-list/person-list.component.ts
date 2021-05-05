@@ -5,7 +5,7 @@ import { Person } from "../shared/person";
 import { PersonFactory } from "../shared/person-factory";
 
 @Component({
-  selector: "kwm-person-list",
+  selector: "a.kwm-person-list",
   templateUrl: "./person-list.component.html",
   styleUrls: ["./person-list.component.css"]
 })
@@ -24,7 +24,7 @@ export class PersonListComponent implements OnInit {
     const params = this.route.snapshot.params;
     // this.kwm.getSingle(params["code"]).subscribe(b => (this.vaccination = b));
   }
-
+/*
   checkVaccination(id) {
     for (let person of this.people) {
       if (person.id == id) {
@@ -35,5 +35,5 @@ export class PersonListComponent implements OnInit {
         this.kwm.update(person).subscribe();
       }
     }
-  }
+  }*/
 }

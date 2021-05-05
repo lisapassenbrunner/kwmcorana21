@@ -1,0 +1,9 @@
+
+      <div class="content">
+        <p><b>{{person.firstName}} {{person.lastName}}</b></p>
+        <p>SV-NR: {{person.sv_nr}}</p>
+        <p><b>Angemeldet für Impftermin:</b></p>
+        <p>Code der Impfung: {{person.vaccination[0].code}}</p>
+        <p *ngIf="person.vaccinated == false">Impfung erhalten: Nein</p>
+        <p *ngIf="person.vaccinated == true">Impfung erhalten: Ja</p>
+      </div>
