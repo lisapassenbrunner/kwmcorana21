@@ -17,6 +17,7 @@ import localeDEAT from "@angular/common/locales/de-AT";
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { PersonListComponent } from './person-list/person-list.component';
 import { PeopleService } from './shared/people.service';
+import { PersonDetailsComponent } from './person-details/person-details.component';
 
 registerLocaleData(localeDEAT);
 
@@ -36,7 +37,8 @@ registerLocaleData(localeDEAT);
     HomeComponent,
     VaccinationFormComponent,
     RegistrationFormComponent,
-    PersonListComponent
+    PersonListComponent,
+    PersonDetailsComponent
   ],
   bootstrap: [AppComponent],
   providers: [VaccinationService, PeopleService, { provide: LOCALE_ID, useValue: "de-at" }]
