@@ -18,6 +18,14 @@ export class PeopleService {
       .pipe(catchError(this.errorHandler));
   }
 
+  getSingle(sv_nr: string): Observable<Person> {
+    return this.http
+      .get<Person>(`${this.api}/profile/${sv_nr}`)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+      
+  }
+
    update(person: Person): Observable<any> {
     return this.http
       .put(`${this.api}/registrations/${person.id}`, person)

@@ -1,15 +1,30 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PeopleService } from '../shared/people.service';
+import { Person } from '../shared/person';
+import { PersonFactory } from '../shared/person-factory';
 
 @Component({
-  selector: 'app-person-details',
+  selector: 'kwm-person-details',
   templateUrl: './person-details.component.html',
   styleUrls: ['./person-details.component.css']
 })
 export class PersonDetailsComponent implements OnInit {
 
-  constructor() { }
+  person: Person = PersonFactory.empty();
+
+  constructor(
+    private kwm: PeopleService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
+    //hier muss svnr noch mitgegeben werden, nachdem eingeloggt
+    console.log(this.person);
+    const params = this.route.snapshot.params;
+    this.kwm.getSingle("3121").subscribe(p => (this.person = p));
   }
+
 
 }
