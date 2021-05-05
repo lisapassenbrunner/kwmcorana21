@@ -1,6 +1,7 @@
-<div class="content">
+<div *ngIf="vaccination.max_registrations > vaccination.registrations" class="content">
   <div class="header">{{ vaccination.description }}</div>
   <div class="description"> Impfstoff: {{ vaccination.vaccine }} </div>
+  <div class="code"> Code: {{ vaccination.code }} </div>
   <div class="date"> Datum:
     {{ vaccination.date }} </div>
   <div class="metadata">
