@@ -26,6 +26,15 @@ export class VaccinationService {
       .pipe(catchError(this.errorHandler));
       
   }
+
+  getSingleVaccination(vaccination_id: string): Observable<Vaccination> {
+    return this.http
+      .get<Vaccination>(`${this.api}/profile/${vaccination_id}`)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+      
+  }
+
   create(vaccination: Vaccination): Observable<any> {
     return this.http
       .post(`${this.api}/vaccination`, vaccination)

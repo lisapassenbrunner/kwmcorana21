@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
 import { catchError, retry } from "rxjs/operators";
 import { Person } from "./person";
+import { Vaccination } from "./vaccination";
 
 @Injectable()
 export class PeopleService {
@@ -27,6 +28,14 @@ export class PeopleService {
   update(person: Person): Observable<any> {
     return this.http
       .put(`${this.api}/registrations/${person.sv_nr}`, person)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
+
+  updateRegistration(person: Person, vaccination: Vaccination): Observable<any> {
+    console.log(vaccination.code);
+    return this.http
+      .put(`${this.api}/registration/${person.sv_nr}/${vaccination.code}`, person)
       .pipe(retry(3))
       .pipe(catchError(this.errorHandler));
   }

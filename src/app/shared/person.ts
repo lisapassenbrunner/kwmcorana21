@@ -11,6 +11,7 @@ export class Person {
     public email: string,
     public phoneNumber: string,
     public administrator: boolean,
+    public vaccination_id: string,
     public vaccination?: Vaccination[],
     public vaccinated?: boolean
   ) {}

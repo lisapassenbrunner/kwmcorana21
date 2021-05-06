@@ -14,6 +14,7 @@ export class PersonFactory {
       "",
       "",
       false,
+      "",
       [
         {
           id: 0,
@@ -55,6 +56,7 @@ export class PersonFactory {
       rawPerson.email,
       rawPerson.phoneNumber,
       rawPerson.administrator,
+      rawPerson.vaccination_id,
       rawPerson.vaccination,
       rawPerson.vaccinated
     );
