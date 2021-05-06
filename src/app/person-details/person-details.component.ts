@@ -30,9 +30,9 @@ export class PersonDetailsComponent implements OnInit {
     const params = this.route.snapshot.params;
     this.kwm.getSingle("3121").subscribe(p => (this.person = p));
     
-    let vaccination_code = this.person.vaccination_id
+  //  let vaccination_code = this.person.vaccination_id
     console.log(this.person);
-    this.kwm2.getSingleVaccination(vaccination_code).subscribe(p => (this.vaccination = p));
+  //  this.kwm2.getSingleVaccination(vaccination_code).subscribe(p => (this.vaccination = p));
 
       console.log(this.person);
   }
