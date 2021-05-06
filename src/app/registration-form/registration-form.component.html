@@ -1,0 +1,41 @@
+<div class="formbox">
+  <h1>Anmeldung zur Impfung am {{ vaccination.date | date:'longDate'}}</h1>
+  <p>Bitte überprüfen Sie ihre Daten</p>
+  <form class="ui large form" [formGroup]="registrationForm" (ngSubmit)="submitForm()">
+    <input type="hidden" name="id">
+    <div class="field" [class.disabled]="isRegistrating">
+      <label>SV-NR</label>
+      <input formControlName="sv_nr">
+    </div>
+    <div class="field">
+      <label>Vorname</label>
+      <input formControlName="firstName">
+    </div>
+    <div class="field">
+      <label>Nachname</label>
+      <input formControlName="lastName">
+    </div>
+    <div class="field">
+      <label>Geschlecht</label>
+      <input formControlName="gender">
+    </div>
+    <div class="field">
+      <label>Geboren am:</label>
+      <input formControlName="dateOfBirth">
+    </div>
+    <div class="field">
+      <label>E-Mail</label>
+      <input formControlName="email">
+    </div>
+    <div class="field">
+      <label>Telefonnummer</label>
+      <input formControlName="phoneNumber">
+    </div>
+
+  
+    
+    
+    <button type="submit" class="ui button" 
+>Anmelden</button>
+  </form>
+</div>

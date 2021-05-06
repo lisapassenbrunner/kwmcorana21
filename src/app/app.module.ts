@@ -20,6 +20,7 @@ import { PeopleService } from './shared/people.service';
 import { PersonDetailsComponent } from './person-details/person-details.component';
 import { PersonRegistrationDetailsComponent } from './person-registration-details/person-registration-details.component';
 import { PersonListItemComponent } from './person-list-item/person-list-item.component';
+import { RegistrationFormComponent } from './registration-form/registration-form.component';
 
 registerLocaleData(localeDEAT);
 
@@ -42,7 +43,8 @@ registerLocaleData(localeDEAT);
     PersonListComponent,
     PersonDetailsComponent,
     PersonRegistrationDetailsComponent,
-    PersonListItemComponent
+    PersonListItemComponent,
+    RegistrationFormComponent
   ],
   bootstrap: [AppComponent],
   providers: [VaccinationService, PeopleService, { provide: LOCALE_ID, useValue: "de-at" }]
