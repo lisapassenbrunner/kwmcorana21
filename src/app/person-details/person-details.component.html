@@ -10,7 +10,7 @@
         <p>E-Mail: {{person.email}}</p>
         <p>Telefon: {{person.phoneNumber}}</p>
         <p>SV-NR: {{person.sv_nr}}</p>
-        <h3 class="ui header">Angemeldet für Impftermin:</h3>
+        <h3 class="ui header">Angemeldet für Impftermin: </h3>
         <p>Code der Impfung: {{person.vaccination[0].code}}</p>
         <p>Datum der Impfung {{person.vaccination[0].date | date:'longDate'}}</p>
         <p *ngIf="person.vaccinated == false">Impfung erhalten: Nein</p>
