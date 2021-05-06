@@ -67,11 +67,13 @@ export class RegistrationFormComponent implements OnInit {
     console.log(this.vaccination.code);
 
    // person.vaccination = this.vaccination;
-
+/*
       this.kwm.update(person, this.vaccination).subscribe(res => {
         this.router.navigate(["../../vaccinations", this.vaccination.code], {
           relativeTo: this.route
         });
       });
+      */
   }
+  
 }
