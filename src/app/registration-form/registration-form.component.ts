@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { PeopleService } from "../shared/people.service";
+import { Person } from "../shared/person";
 import { PersonFactory } from "../shared/person-factory";
 import { Vaccination } from "../shared/vaccination";
 import { VaccinationFactory } from "../shared/vaccination-factory";
@@ -16,7 +17,7 @@ export class RegistrationFormComponent implements OnInit {
   registrationForm: FormGroup;
   isRegistrating = false;
   person = PersonFactory.empty();
-  vaccination: Vaccination =  VaccinationFactory.empty();
+  vaccination =  VaccinationFactory.empty();
 
   constructor(
     private fb: FormBuilder,
@@ -34,12 +35,13 @@ export class RegistrationFormComponent implements OnInit {
     console.log(params["code"]);
     this.kwm2.getSingle(params["code"]).subscribe(vaccination => {
       this.vaccination = vaccination;
+   //   console.log(this.vaccination);
     });
 
     this.kwm.getSingle("3121").subscribe(person => {
       this.person = person;
       this.initPerson();
-      console.log(this.person);
+     //console.log(this.person);
     });
     //  }
     //this.initPerson();
@@ -53,11 +55,23 @@ export class RegistrationFormComponent implements OnInit {
       gender: this.person.gender,
       dateOfBirth: this.person.dateOfBirth,
       email: this.person.email,
-      phoneNumber: this.person.phoneNumber
+      phoneNumber: this.person.phoneNumber,
+      vaccination: this.vaccination
     });
   }
 
   submitForm() {
-    return null;
+   const person: Person = PersonFactory.fromObject(
+      this.registrationForm.value
+    );
+    console.log(this.vaccination.code);
+
+   // person.vaccination = this.vaccination;
+
+      this.kwm.update(person, this.vaccination).subscribe(res => {
+        this.router.navigate(["../../vaccinations", this.vaccination.code], {
+          relativeTo: this.route
+        });
+      });
   }
 }
