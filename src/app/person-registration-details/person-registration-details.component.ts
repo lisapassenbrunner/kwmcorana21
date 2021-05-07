@@ -21,7 +21,6 @@ export class PersonRegistrationDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.person);
     const params = this.route.snapshot.params;
     this.kwm.getSingle(params["sv_nr"]).subscribe(p => (this.person = p));
   }

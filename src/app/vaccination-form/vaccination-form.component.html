@@ -35,6 +35,10 @@
       <div *ngIf="errors.max_registrations" class="ui negative message">{{ errors.max_registrations
         }}</div>
     </div>
+    <div class="field" [class.disabled]="isUpdatingVaccination">
+      <label>Anzahl der Anmeldungen</label>
+      <input formControlName="registrations">
+    </div>
 
     <div class="field">
       <div formArrayName="places">

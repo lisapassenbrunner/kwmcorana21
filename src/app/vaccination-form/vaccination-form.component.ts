@@ -1,21 +1,21 @@
-import { ActivatedRoute, Router } from "@angular/router";
-import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
   FormArray,
   Validators,
   FormControl
-} from "@angular/forms";
-import { VaccinationFactory } from "../shared/vaccination-factory";
-import { VaccinationService } from "../shared/vaccination.service";
-import { Vaccination } from "../shared/vaccination";
-import { VaccinationFormErrorMessages } from "./vaccination-form-error-messages";
+} from '@angular/forms';
+import { VaccinationFactory } from '../shared/vaccination-factory';
+import { VaccinationService } from '../shared/vaccination.service';
+import { Vaccination } from '../shared/vaccination';
+import { VaccinationFormErrorMessages } from './vaccination-form-error-messages';
 
 @Component({
-  selector: "kwm-vaccination-form",
-  templateUrl: "./vaccination-form.component.html",
-  styleUrls: ["./vaccination-form.component.css"]
+  selector: 'kwm-vaccination-form',
+  templateUrl: './vaccination-form.component.html',
+  styleUrls: ['./vaccination-form.component.css']
 })
 export class VaccinationFormComponent implements OnInit {
   vaccinationForm: FormGroup;
@@ -32,7 +32,7 @@ export class VaccinationFormComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const code = this.route.snapshot.params["code"];
+    const code = this.route.snapshot.params['code'];
     if (code) {
       this.isUpdatingVaccination = true;
       this.kwm.getSingle(code).subscribe(vaccination => {
@@ -56,9 +56,10 @@ export class VaccinationFormComponent implements OnInit {
       ],
       time: this.vaccination.time,
       max_registrations: [
-        this.vaccination.max_registrations, 
+        this.vaccination.max_registrations,
         [Validators.required, Validators.min(5), Validators.max(15)]
       ],
+      registrations: this.vaccination.registrations,
       places: this.places,
       date: this.vaccination.date
     });
@@ -78,7 +79,7 @@ export class VaccinationFormComponent implements OnInit {
         place: new FormControl(place.place, [Validators.required]),
         street: new FormControl(place.street, [Validators.required]),
         number: new FormControl(place.number, [Validators.required]),
-        district: new FormControl(place.district, [Validators.required]),
+        district: new FormControl(place.district, [Validators.required])
       });
       this.places.push(fg);
     }
@@ -92,7 +93,7 @@ export class VaccinationFormComponent implements OnInit {
         place: null,
         street: null,
         number: null,
-        district: null,
+        district: null
       })
     );
   }
@@ -113,7 +114,7 @@ export class VaccinationFormComponent implements OnInit {
     //vaccination.people = this.vaccination.people;
     if (this.isUpdatingVaccination) {
       this.kwm.update(vaccination).subscribe(res => {
-        this.router.navigate(["../../vaccinations", vaccination.code], {
+        this.router.navigate(['../../vaccinations', vaccination.code], {
           relativeTo: this.route
         });
       });
@@ -123,16 +124,15 @@ export class VaccinationFormComponent implements OnInit {
       this.kwm.create(vaccination).subscribe(res => {
         this.vaccination = VaccinationFactory.empty();
         this.vaccinationForm.reset(VaccinationFactory.empty());
-        this.router.navigate(["../vaccinations"], { relativeTo: this.route });
+        this.router.navigate(['../vaccinations'], { relativeTo: this.route });
       });
     }
   }
   updateErrorMessages() {
-    console.log("Is invalid? " + this.vaccinationForm.invalid);
+    console.log('Is invalid? ' + this.vaccinationForm.invalid);
 
     this.errors = {};
     for (const message of VaccinationFormErrorMessages) {
-      
       const control = this.vaccinationForm.get(message.forControl);
       if (
         control &&
