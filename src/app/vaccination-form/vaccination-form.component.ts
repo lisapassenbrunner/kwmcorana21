@@ -70,6 +70,7 @@ export class VaccinationFormComponent implements OnInit {
   }
 
   buildPlacesArray() {
+   
     this.places = this.fb.array([]);
     for (let place of this.vaccination.place) {
       let fg = this.fb.group({

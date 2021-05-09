@@ -39,6 +39,14 @@ export class VaccinationService {
       .pipe(retry(3))
       .pipe(catchError(this.errorHandler));
   }
+
+  updateRegistration(vaccination: Vaccination): Observable<any> {
+    return this.http
+      .put(`${this.api}/registration/${vaccination.code}`, vaccination)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
+
   remove(code: string): Observable<any> {
     return this.http
       .delete(`${this.api}/vaccination/${code}`)

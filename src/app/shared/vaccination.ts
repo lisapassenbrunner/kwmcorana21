@@ -10,7 +10,7 @@ export class Vaccination {
     public max_registrations: number,
     public registrations: number,
     public place: Place[],
-   // public people: Person[],
+    public people: Person[],
     public vaccine?: string,
     public description?: string
   ) {}

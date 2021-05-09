@@ -32,12 +32,15 @@ export class PersonFactory {
           number: 0,
           state: "",
           district: ""
-        }
+        },
       ],
+      people:[],
+      
           vaccine: "",
           description: ""
         }
-      ],
+      
+      ], 
       false
     );
   }
@@ -55,7 +58,7 @@ export class PersonFactory {
       rawPerson.email,
       rawPerson.phoneNumber,
       rawPerson.administrator,
-      rawPerson.vaccination,
+      //rawPerson.vaccination,
       rawPerson.vaccinated
     );
   }
