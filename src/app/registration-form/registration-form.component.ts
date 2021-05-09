@@ -37,14 +37,14 @@ export class RegistrationFormComponent implements OnInit {
     console.log(params['code']);
     this.kwm.getSingle(params['code']).subscribe(vaccination => {
       this.vaccination = vaccination;
-      //console.log(this.vaccination["people"]);
+      console.log(this.vaccination);
     });
 
     this.kwm2.getSingle('3121').subscribe(person => {
       this.person = person;
-      this.initPerson();
+      
       //console.log(this.person);
-    });
+    });this.initPerson();
   }
 
   initPerson() {

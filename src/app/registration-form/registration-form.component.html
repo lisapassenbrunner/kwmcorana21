@@ -1,6 +1,7 @@
 <div class="formbox">
   <h1>Anmeldung zur Impfung am {{ vaccination.date | date:'longDate'}}</h1>
   <p>Bitte überprüfen Sie ihre Daten</p>
+  {{person.firstName}}
   <form class="ui large form" [formGroup]="registrationForm" (ngSubmit)="submitForm()">
     <input type="hidden" name="id">
 
@@ -43,8 +44,8 @@ p; last as l" [formGroupName]="p">
       </div>
     </div>
 
-    <input  name="vaccination_id">
-    <input  formControlName="code">
+    <input  type="hidden" name="vaccination_id">
+    <input type="hidden"  formControlName="code">
     <input type="hidden" formControlName="description">
     <input type="hidden" formControlName="vaccine">
     <input type="hidden" formControlName="date">
