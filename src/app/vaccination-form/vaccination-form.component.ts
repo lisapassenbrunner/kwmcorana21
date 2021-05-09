@@ -46,6 +46,7 @@ export class VaccinationFormComponent implements OnInit {
 
   initVaccination() {
     this.buildPlacesArray();
+
     this.vaccinationForm = this.fb.group({
       id: this.vaccination.id,
       description: [this.vaccination.description, Validators.required],

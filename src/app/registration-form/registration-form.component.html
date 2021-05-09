@@ -9,102 +9,58 @@
         <div formArrayName="people">
           <div class="fields" *ngFor="let control of people?.controls; index as
 p; last as l" [formGroupName]="p">
-            <label>SV-NR</label>
-            <input formControlName="sv_nr">
-          </div>
-          <div class="field">
-            <label>Vorname</label>
-            <input formControlName="firstName">
-          </div>
-          <div class="field">
-            <label>Nachname</label>
-            <input formControlName="lastName">
-          </div>
-          <div class="field">
-            <label>Geschlecht</label>
-            <input formControlName="gender">
-          </div>
-          <div class="field">
-            <label>Geboren am:</label>
-            <input formControlName="dateOfBirth">
-          </div>
-          <div class="field">
-            <label>E-Mail</label>
-            <input formControlName="email">
-          </div>
-          <div class="field">
-            <label>Telefonnummer</label>
-            <input formControlName="phoneNumber">
-          </div>
+            <div class="field">
+              <label>SV-NR</label>
+              <input formControlName="sv_nr">
+            </div>
 
+            <div class="field">
+              <label>Vorname</label>
+              <input formControlName="firstName">
+            </div>
+            <div class="field">
+              <label>Nachname</label>
+              <input formControlName="lastName">
+            </div>
+            <div class="field">
+              <label>Geschlecht</label>
+              <input formControlName="gender">
+            </div>
+            <div class="field">
+              <label>Geboren am:</label>
+              <input formControlName="dateOfBirth">
+            </div>
+            <div class="field">
+              <label>E-Mail</label>
+              <input formControlName="email">
+            </div>
+            <div class="field">
+              <label>Telefonnummer</label>
+              <input formControlName="phoneNumber">
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <p>Daten zur Impfung</p>
-
-    <input type="hidden" name="vaccination_id">
-    <div class="field" [class.disabled]="true">
-      <label>Code der Impfung</label>
-      <input formControlName="code">
-
-    </div>
-    <div class="field">
-      <label>Beschreibung der Impfung</label>
-      <input formControlName="description">
-
-    </div>
-    <div class="field">
-      <label>Impfstoff</label>
-      <input formControlName="vaccine">
-    </div>
-    <div class="field">
-      <label>Datum</label>
-      <input type="date" formControlName="date">
-
-    </div>
-    <div class="field">
-      <label>Zeitfenster für den Impftermin</label>
-      <input formControlName="time">
-
-    </div>
-    <div class="field">
-      <label>Maximale Anzahl an Registrierungen</label>
-      <input type="number" formControlName="max_registrations">
-
-    </div>
-    <div class="field" [class.disabled]="true">
-      <label>Anzahl der Anmeldungen</label>
-      <input formControlName="registrations">
-    </div>
+    <input  name="vaccination_id">
+    <input  formControlName="code">
+    <input type="hidden" formControlName="description">
+    <input type="hidden" formControlName="vaccine">
+    <input type="hidden" formControlName="date">
+    <input type="hidden" formControlName="time">
+    <input type="hidden" formControlName="max_registrations">
+    <input type="hidden" formControlName="registrations">
 
     <div class="field">
       <div formArrayName="places">
         <input type="hidden" name="id">
-        <div class="six wide field">
-          <label>Name der Impfstelle</label>
-          <input formControlName="title">
-        </div>
-        <div class="six wide field">
-          <label>Straße</label>
-          <input formControlName="street">
-        </div>
-        <div class="three wide field">
-          <label>Nummer</label>
-          <input  formControlName="number">
-        </div>
-        <div class="three wide field">
-          <label>PLZ</label>
-          <input  formControlName="plz">
-        </div>
-        <div class="six wide field">
-          <label>Ort</label>
-          <input formControlName="place">
-        </div>
-        <div class="six wide field">
-          <label>Bundesland</label>
-          <input formControlName="district">
-        </div>
+        <input type="hidden" formControlName="title">
+        <input type="hidden" formControlName="street">
+        <input  type="hidden" formControlName="number">
+        <input type="hidden"  formControlName="plz">
+        <input type="hidden" formControlName="place">
+        <input type="hidden" formControlName="district">
       </div>
     </div>
 

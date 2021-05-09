@@ -20,11 +20,11 @@ export class RegistrationFormComponent implements OnInit {
   isRegistrating = false;
   vaccination: Vaccination = VaccinationFactory.empty();
   person = PersonFactory.empty();
-   places: FormArray;
-   people: FormArray;
+  places: FormArray;
+  people: FormArray;
 
   constructor(
-     private fb: FormBuilder,
+    private fb: FormBuilder,
     private kwm: VaccinationService,
     private kwm2: PeopleService,
     private router: Router,
@@ -32,51 +32,46 @@ export class RegistrationFormComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-   // console.log(this.vaccination);
+    // console.log(this.vaccination);
     const params = this.route.snapshot.params;
-    console.log(params["code"]);
-    this.kwm.getSingle(params["code"]).subscribe(vaccination => {
+    console.log(params['code']);
+    this.kwm.getSingle(params['code']).subscribe(vaccination => {
       this.vaccination = vaccination;
-      console.log(this.vaccination["people"]);
+      //console.log(this.vaccination["people"]);
     });
 
-    this.kwm2.getSingle("3121").subscribe(person => {
+    this.kwm2.getSingle('3121').subscribe(person => {
       this.person = person;
       this.initPerson();
-     console.log(this.person);
+      //console.log(this.person);
     });
-
-    
   }
 
   initPerson() {
-        this.buildPeopleArray();
+    this.buildPeopleArray();
     this.buildPlacesArray();
- 
-   // this.buildPeopleArray();
+    console.log(this.people);
+
+    // this.buildPeopleArray();
     this.registrationForm = this.fb.group({
       vaccination_id: this.vaccination.id,
       description: this.vaccination.description,
       vaccine: this.vaccination.vaccine,
-      code: 
-        this.vaccination.code,
+      code: this.vaccination.code,
       time: this.vaccination.time,
-      max_registrations:
-        this.vaccination.max_registrations,
+      max_registrations: this.vaccination.max_registrations,
       registrations: this.vaccination.registrations,
       places: this.places,
-      people: this.people,
+      people: this.person,
       date: this.vaccination.date
     });
-  //  console.log(this.registrationForm);
+    //  console.log(this.registrationForm);
 
-  // this.people.push(array);
+    // this.people.push(array);
     //this.people.push(fg);
-    
-    
   }
 
-buildPlacesArray() {
+  buildPlacesArray() {
     this.places = this.fb.array([]);
     for (let place of this.vaccination.place) {
       let fg = this.fb.group({
@@ -93,30 +88,28 @@ buildPlacesArray() {
   }
 
   buildPeopleArray() {
-    this.vaccination["people"].push(this.person);
-    console.log(this.vaccination["people"]);
+    //neue Person anhängen
+    this.vaccination['people'].push(this.person);
+  //  console.log(this.vaccination['people']);
 
     this.people = this.fb.array([]);
     for (let person of this.vaccination.people) {
-       console.log(person.id);
+      //console.log(person.id);
       let fg = this.fb.group({
-       
-      id:  new FormControl(person.id),
-      sv_nr:  new FormControl(person.sv_nr),
-      firstName: new FormControl(person.firstName),
-      lastName: new FormControl(person.lastName),
-      gender: new FormControl(person.gender),
-      dateOfBirth: new FormControl(person.dateOfBirth),
-      email: new FormControl(person.email),
-      phoneNumber: new FormControl(person.phoneNumber),
+        id: new FormControl(person.id),
+        sv_nr: new FormControl(person.sv_nr),
+        firstName: new FormControl(person.firstName),
+        lastName: new FormControl(person.lastName),
+        gender: new FormControl(person.gender),
+        dateOfBirth: new FormControl(person.dateOfBirth),
+        email: new FormControl(person.email),
+        phoneNumber: new FormControl(person.phoneNumber)
       });
       this.people.push(fg);
       console.log(this.people);
     }
-    
   }
 
-  
   addPeopleControl() {
     this.people.push(
       this.fb.group({
@@ -132,21 +125,19 @@ buildPlacesArray() {
     );
   }
 
-
   submitForm() {
-   const vaccination: Vaccination = VaccinationFactory.fromObject(
+    const vaccination: Vaccination = VaccinationFactory.fromObject(
       this.registrationForm.value
     );
     vaccination.people = this.registrationForm.value.people;
     console.log(this.vaccination);
 
     this.kwm.updateRegistration(vaccination).subscribe(res => {
-        this.router.navigate(['../../vaccinations', vaccination.code], {
-          relativeTo: this.route
-        });
+      this.router.navigate(['../../vaccinations', vaccination.code], {
+        relativeTo: this.route
       });
+    });
 
-   // person.vaccination = this.vaccination;
-
+    // person.vaccination = this.vaccination;
   }
 }
