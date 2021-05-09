@@ -38,12 +38,15 @@
     </div>
     <div class="twelve wide column">
       <button [routerLink]="'/vaccinations'" class="ui tiny grey button">Zurück zur Übersicht</button>
-      <button [routerLink]="'/registration'" class="ui tiny blue button">Anmeldung zur Impfung</button>
+      <button *ngIf="vaccination"  [routerLink]="['/registration', vaccination.code]" class="ui tiny blue button">Anmeldung zur Impfung</button>
       <button  class="ui tiny red labeled icon button" (click)="removeVaccination()">
         <i class="remove icon"></i>Impfung löschen</button>
       <button  class="ui tiny yellow labeled icon button" [routerLink]="['../../admin', vaccination?.code]">
         <i class="write icon"></i>Impfung Bearbeiten</button>
     </div>
+
+
+    
 
   </div>
 </div>

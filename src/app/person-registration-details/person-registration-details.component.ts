@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PeopleService } from '../shared/people.service';
 import { Person } from '../shared/person';
 import { PersonFactory } from '../shared/person-factory';
+import { Vaccination } from '../shared/vaccination';
 
 @Component({
   selector: 'kwm-person-registration-details',
