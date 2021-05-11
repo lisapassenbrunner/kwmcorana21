@@ -15,6 +15,7 @@ import { PersonFactory } from "../shared/person-factory";
 export class VaccinationDetailsComponent implements OnInit {
   vaccination: Vaccination = VaccinationFactory.empty();
   person: Person = PersonFactory.empty();
+  isRegistrated = false;
 
   constructor(
     private kwm: VaccinationService,
@@ -29,6 +30,16 @@ export class VaccinationDetailsComponent implements OnInit {
     this.kwm.getSingle(params["code"]).subscribe(b => (this.vaccination = b));
 
     this.kwm2.getSingle("3121").subscribe(p => (this.person = p));
+
+//noch anpassen
+    for (let person of this.vaccination.people){
+      if (person.sv_nr == this.person.sv_nr){
+        console.log(this.person.sv_nr);
+        this.isRegistrated = true;
+      }
+    }
+
+    console.log(this.person);
     
   }
 
