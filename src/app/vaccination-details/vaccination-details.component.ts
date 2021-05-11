@@ -3,6 +3,9 @@ import { Vaccination } from "../shared/vaccination";
 import { ActivatedRoute, Router } from "@angular/router";
 import { VaccinationService } from "../shared/vaccination.service";
 import { VaccinationFactory } from "../shared/vaccination-factory";
+import { PeopleService } from "../shared/people.service";
+import { Person } from "../shared/person";
+import { PersonFactory } from "../shared/person-factory";
 
 @Component({
   selector: "kwm-vaccination-details",
@@ -11,9 +14,11 @@ import { VaccinationFactory } from "../shared/vaccination-factory";
 })
 export class VaccinationDetailsComponent implements OnInit {
   vaccination: Vaccination = VaccinationFactory.empty();
+  person: Person = PersonFactory.empty();
 
   constructor(
     private kwm: VaccinationService,
+    private kwm2: PeopleService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
@@ -22,6 +27,9 @@ export class VaccinationDetailsComponent implements OnInit {
     console.log(this.vaccination);
     const params = this.route.snapshot.params;
     this.kwm.getSingle(params["code"]).subscribe(b => (this.vaccination = b));
+
+    this.kwm2.getSingle("3121").subscribe(p => (this.person = p));
+    
   }
 
   removeVaccination() {

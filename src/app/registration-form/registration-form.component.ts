@@ -37,107 +37,23 @@ export class RegistrationFormComponent implements OnInit {
     console.log(params['code']);
     this.kwm.getSingle(params['code']).subscribe(vaccination => {
       this.vaccination = vaccination;
-      console.log(this.vaccination);
     });
 
     this.kwm2.getSingle('3121').subscribe(person => {
       this.person = person;
-      
-      //console.log(this.person);
-    });this.initPerson();
+ 
+    }); 
   }
 
-  initPerson() {
-    this.buildPeopleArray();
-    this.buildPlacesArray();
-    console.log(this.people);
 
-    // this.buildPeopleArray();
-    this.registrationForm = this.fb.group({
-      vaccination_id: this.vaccination.id,
-      description: this.vaccination.description,
-      vaccine: this.vaccination.vaccine,
-      code: this.vaccination.code,
-      time: this.vaccination.time,
-      max_registrations: this.vaccination.max_registrations,
-      registrations: this.vaccination.registrations,
-      places: this.places,
-      people: this.person,
-      date: this.vaccination.date
-    });
-    //  console.log(this.registrationForm);
-
-    // this.people.push(array);
-    //this.people.push(fg);
-  }
-
-  buildPlacesArray() {
-    this.places = this.fb.array([]);
-    for (let place of this.vaccination.place) {
-      let fg = this.fb.group({
-        id: new FormControl(place.id),
-        title: new FormControl(place.title),
-        plz: new FormControl(place.plz),
-        place: new FormControl(place.place),
-        street: new FormControl(place.street),
-        number: new FormControl(place.number),
-        district: new FormControl(place.district)
-      });
-      this.places.push(fg);
-    }
-  }
-
-  buildPeopleArray() {
-    //neue Person anhängen
+  updateRegistration() {
     this.vaccination['people'].push(this.person);
-  //  console.log(this.vaccination['people']);
+    console.log(this.person);
 
-    this.people = this.fb.array([]);
-    for (let person of this.vaccination.people) {
-      //console.log(person.id);
-      let fg = this.fb.group({
-        id: new FormControl(person.id),
-        sv_nr: new FormControl(person.sv_nr),
-        firstName: new FormControl(person.firstName),
-        lastName: new FormControl(person.lastName),
-        gender: new FormControl(person.gender),
-        dateOfBirth: new FormControl(person.dateOfBirth),
-        email: new FormControl(person.email),
-        phoneNumber: new FormControl(person.phoneNumber)
-      });
-      this.people.push(fg);
-      console.log(this.people);
-    }
-  }
-
-  addPeopleControl() {
-    this.people.push(
-      this.fb.group({
-        id: null,
-        sv_nr: null,
-        firstName: null,
-        lastName: null,
-        gender: null,
-        dateOfBirth: null,
-        email: null,
-        phoneNumber: null
-      })
-    );
-  }
-
-  submitForm() {
-    const vaccination: Vaccination = VaccinationFactory.fromObject(
-      this.registrationForm.value
-    );
-    vaccination.people = this.registrationForm.value.people;
-    console.log(this.vaccination);
-
-    this.kwm.updateRegistration(vaccination).subscribe(res => {
-      this.router.navigate(['../../vaccinations', vaccination.code], {
+    this.kwm.updateRegistration(this.vaccination).subscribe(res => {
+      this.router.navigate(['../../vaccinations', this.vaccination.code], {
         relativeTo: this.route
       });
     });
-
-    // person.vaccination = this.vaccination;
   }
 }

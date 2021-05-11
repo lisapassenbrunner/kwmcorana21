@@ -1,71 +1,35 @@
-<div class="formbox">
-  <h1>Anmeldung zur Impfung am {{ vaccination.date | date:'longDate'}}</h1>
-  <p>Bitte überprüfen Sie ihre Daten</p>
-  {{person.firstName}}
-  <form class="ui large form" [formGroup]="registrationForm" (ngSubmit)="submitForm()">
-    <input type="hidden" name="id">
-
-    <div class="field" [class.disabled]="isRegistrating">
-      <div class="field">
-        <div formArrayName="people">
-          <div class="fields" *ngFor="let control of people?.controls; index as
-p; last as l" [formGroupName]="p">
-            <div class="field">
-              <label>SV-NR</label>
-              <input formControlName="sv_nr">
-            </div>
-
-            <div class="field">
-              <label>Vorname</label>
-              <input formControlName="firstName">
-            </div>
-            <div class="field">
-              <label>Nachname</label>
-              <input formControlName="lastName">
-            </div>
-            <div class="field">
-              <label>Geschlecht</label>
-              <input formControlName="gender">
-            </div>
-            <div class="field">
-              <label>Geboren am:</label>
-              <input formControlName="dateOfBirth">
-            </div>
-            <div class="field">
-              <label>E-Mail</label>
-              <input formControlName="email">
-            </div>
-            <div class="field">
-              <label>Telefonnummer</label>
-              <input formControlName="phoneNumber">
-            </div>
-          </div>
-        </div>
+<div class=box>
+  <div class="ui grid" *ngIf="vaccination">
+    <div class="twelve wide column">
+      <h1 class="ui header">Anmeldung zur Impfung am {{vaccination.date | date:'longDate'}}
+      </h1>
+      <h3 class="ui header">Impfstoff: {{ vaccination.vaccine }}</h3>
+      <div class="ui divider"></div>
+      <h3 class="ui header">Ort:</h3>
+      <div class="four wide column" *ngIf="vaccination.place && vaccination.place[0]">
+        <p>{{vaccination.place[0].title}}</p>
+        <p>{{vaccination.place[0].street}} {{vaccination.place[0].number}}</p>
+        <p>{{vaccination.place[0].plz}} {{vaccination.place[0].place}}</p>
       </div>
+      <h3 class="ui header">Zeitpunkt:</h3>
+      <div class="date"> Datum:
+        {{vaccination.date | date:'longDate'}} </div>
+      <div>Zugang zur Impfung zwischen: {{ vaccination.time}}</div>
+
+      <h1 class="ui header">Persönliche Daten
+      </h1>
+     <h3 class="ui header">{{ person.firstName }} {{ person.lastName }}</h3>
+
+      <p>Geboren am: {{person.dateOfBirth | date:'longDate'}}</p>
+        <p>E-Mail: {{person.email}}</p>
+        <p>Telefon: {{person.phoneNumber}}</p>
+        <p>SV-NR: {{person.sv_nr}}</p>
+        
+    <div class="twelve wide column">
+      <button class="ui tiny blue button" (click)="updateRegistration()">Anmelden</button>
+      <button [routerLink]="['/vaccinations', vaccination.code]" class="ui tiny grey button">Zurück zur Übersicht</button>
     </div>
-
-    <input  type="hidden" name="vaccination_id">
-    <input type="hidden"  formControlName="code">
-    <input type="hidden" formControlName="description">
-    <input type="hidden" formControlName="vaccine">
-    <input type="hidden" formControlName="date">
-    <input type="hidden" formControlName="time">
-    <input type="hidden" formControlName="max_registrations">
-    <input type="hidden" formControlName="registrations">
-
-    <div class="field">
-      <div formArrayName="places">
-        <input type="hidden" name="id">
-        <input type="hidden" formControlName="title">
-        <input type="hidden" formControlName="street">
-        <input  type="hidden" formControlName="number">
-        <input type="hidden"  formControlName="plz">
-        <input type="hidden" formControlName="place">
-        <input type="hidden" formControlName="district">
-      </div>
-    </div>
-
-    <button type="submit" class="ui button"
->Anmelden</button>
-  </form>
+    
+  </div>
 </div>
+
