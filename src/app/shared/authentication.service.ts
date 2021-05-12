@@ -6,7 +6,7 @@ import { retry } from 'rxjs/operators';
 interface Token {
   exp: number;
   user: {
-    id: string;
+  id: string;
   };
 }
 @Injectable()
