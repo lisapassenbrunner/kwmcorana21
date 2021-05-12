@@ -21,6 +21,8 @@ import { PersonDetailsComponent } from './person-details/person-details.componen
 import { PersonRegistrationDetailsComponent } from './person-registration-details/person-registration-details.component';
 import { PersonListItemComponent } from './person-list-item/person-list-item.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { LoginComponent } from './login/login.component';
+import { AuthenticationService } from './shared/authentication.service';
 
 registerLocaleData(localeDEAT);
 
@@ -44,9 +46,10 @@ registerLocaleData(localeDEAT);
     PersonDetailsComponent,
     PersonRegistrationDetailsComponent,
     PersonListItemComponent,
-    RegistrationFormComponent
+    RegistrationFormComponent,
+    LoginComponent
   ],
   bootstrap: [AppComponent],
-  providers: [VaccinationService, PeopleService, { provide: LOCALE_ID, useValue: "de-at" }]
+  providers: [VaccinationService, PeopleService, AuthenticationService, { provide: LOCALE_ID, useValue: "de-at" }]
 })
 export class AppModule {}

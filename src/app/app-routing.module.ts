@@ -9,6 +9,7 @@ import { PersonListComponent } from "./person-list/person-list.component";
 import { PersonDetailsComponent } from "./person-details/person-details.component";
 import { PersonRegistrationDetailsComponent } from "./person-registration-details/person-registration-details.component";
 import { RegistrationFormComponent } from "./registration-form/registration-form.component";
+import { LoginComponent } from "./login/login.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: "registrations", component: PersonListComponent},
   { path: "registrations/:sv_nr", component: PersonRegistrationDetailsComponent },
   { path: "profile", component: PersonDetailsComponent},
+  { path: "login", component: LoginComponent},
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

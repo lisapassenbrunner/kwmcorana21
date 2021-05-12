@@ -6,6 +6,7 @@ import { VaccinationFactory } from "../shared/vaccination-factory";
 import { PeopleService } from "../shared/people.service";
 import { Person } from "../shared/person";
 import { PersonFactory } from "../shared/person-factory";
+import { AuthenticationService } from "../shared/authentication.service";
 
 @Component({
   selector: "kwm-vaccination-details",
@@ -21,7 +22,8 @@ export class VaccinationDetailsComponent implements OnInit {
     private kwm: VaccinationService,
     private kwm2: PeopleService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public authService: AuthenticationService
   ) {}
 
   ngOnInit() {
