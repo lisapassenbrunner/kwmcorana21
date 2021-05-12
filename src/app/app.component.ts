@@ -12,7 +12,7 @@ import { VaccinationService } from './shared/vaccination.service';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  personSVNR = null;
+  personAdmin = null;
   person = PersonFactory.empty();
   constructor(
     private authService: AuthenticationService,
@@ -33,12 +33,14 @@ export class AppComponent {
   }
 
   isAdmin() {
-    this.personSVNR = this.kwm.getCurrentPersonSVNR();
-    this.kwm2.getSingle(this.personSVNR).subscribe(p => (this.person = p));
+    this.personAdmin = this.kwm.getCurrentPersonAdmin();
+   // this.kwm2.getSingle(this.personSVNR).subscribe(p => (this.person = p));
 
 
-    console.log(this.personSVNR);
-    return true;
+    console.log(this.personAdmin);
+    if(this.personAdmin == "true"){
+      return true;
+    }else return false;
   }
 
   listOn = true;

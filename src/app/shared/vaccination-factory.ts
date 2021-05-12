@@ -31,7 +31,7 @@ export class VaccinationFactory {
           dateOfBirth: new Date(),
           email: '',
           phoneNumber: '',
-          administrator: false,
+          administrator: '',
           // public vaccination?: Vaccination[],
           vaccinated: false
         }

@@ -7,6 +7,7 @@ interface Token {
   exp: number;
   person: {
     sv_nr: string;
+    administrator: string;
   };
 }
 @Injectable()
@@ -22,21 +23,29 @@ export class AuthenticationService {
     });
   }
   public getCurrentPersonSVNR() {
-    return Number.parseInt(localStorage.getItem('personSVNR'));
+    return localStorage.getItem('personSVNR');
   }
+
+  public getCurrentPersonAdmin() {
+    return localStorage.getItem('personAdmin');
+  }
+
   public setLocalStorage(token: string) {
     console.log('Storing token');
     console.log(jwt_decode(token));
     const decodedToken = jwt_decode(token) as Token;
     console.log(decodedToken);
     console.log(decodedToken.person.sv_nr);
+    console.log(decodedToken.person.administrator);
     localStorage.setItem('token', token);
     localStorage.setItem('personSVNR', decodedToken.person.sv_nr);
+    localStorage.setItem('personAdmin', decodedToken.person.administrator);
   }
   logout() {
     this.http.post(`${this.api}/logout`, {});
     localStorage.removeItem('token');
     localStorage.removeItem('personSVNR');
+    localStorage.removeItem('personAdmin');
     console.log('logged out');
   }
   public isLoggedIn() {

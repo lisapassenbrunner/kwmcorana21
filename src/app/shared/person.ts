@@ -10,7 +10,7 @@ export class Person {
     public dateOfBirth: Date,
     public email: string,
     public phoneNumber: string,
-    public administrator: boolean,
+    public administrator: string,
     public vaccination_id?: number,
    public vaccination?: Vaccination[],
     public vaccinated?: boolean
