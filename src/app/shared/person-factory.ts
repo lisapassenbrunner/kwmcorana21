@@ -15,6 +15,8 @@ export class PersonFactory {
       "",
       false,
       null,
+    
+      /*
       [
         {
           id: 0,
@@ -35,13 +37,15 @@ export class PersonFactory {
           district: ""
         },
       ],
+      
       people:[],
       
           vaccine: "",
           description: ""
         }
       
-      ], 
+      ], */
+      null,
       false
     );
   }
@@ -59,7 +63,7 @@ export class PersonFactory {
       rawPerson.email,
       rawPerson.phoneNumber,
       rawPerson.administrator,
-      //rawPerson.vaccination,
+      rawPerson.vaccination,
       rawPerson.vaccinated
     );
   }

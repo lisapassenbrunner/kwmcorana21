@@ -25,13 +25,17 @@ export class VaccinationDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.kwm2.getSingle("3121").subscribe(p => (this.person = p));
     console.log(this.vaccination);
     const params = this.route.snapshot.params;
     this.kwm.getSingle(params["code"]).subscribe(b => (this.vaccination = b));
 
-    this.kwm2.getSingle("3121").subscribe(p => (this.person = p));
+
+
+    
 
 //noch anpassen
+/*
     for (let person of this.vaccination.people){
       if (person.sv_nr == this.person.sv_nr){
         console.log(this.person.sv_nr);
@@ -40,7 +44,7 @@ export class VaccinationDetailsComponent implements OnInit {
     }
 
     console.log(this.person);
-    
+    */
   }
 
   removeVaccination() {

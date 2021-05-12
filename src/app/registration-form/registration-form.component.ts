@@ -56,6 +56,8 @@ export class RegistrationFormComponent implements OnInit {
         relativeTo: this.route
       });
     });
+
+    
     console.log(this.vaccination);
   }
 }

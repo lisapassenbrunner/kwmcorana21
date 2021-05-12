@@ -31,6 +31,7 @@ export class PeopleService {
       .pipe(catchError(this.errorHandler));
   }
 
+
   private errorHandler(error: Error | any): Observable<any> {
     return throwError(error);
   }
