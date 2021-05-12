@@ -6,7 +6,7 @@ import { retry } from 'rxjs/operators';
 interface Token {
   exp: number;
   person: {
-  id: string;
+    sv_nr: string;
   };
 }
 @Injectable()
@@ -21,22 +21,22 @@ export class AuthenticationService {
       password: password
     });
   }
-  public getCurrentPersonId() {
-    return Number.parseInt(localStorage.getItem('personId'));
+  public getCurrentPersonSVNR() {
+    return Number.parseInt(localStorage.getItem('personSVNR'));
   }
   public setLocalStorage(token: string) {
     console.log('Storing token');
     console.log(jwt_decode(token));
     const decodedToken = jwt_decode(token) as Token;
     console.log(decodedToken);
-    console.log(decodedToken.person.id);
+    console.log(decodedToken.person.sv_nr);
     localStorage.setItem('token', token);
-    localStorage.setItem('personId', decodedToken.person.id);
+    localStorage.setItem('personSVNR', decodedToken.person.sv_nr);
   }
   logout() {
     this.http.post(`${this.api}/logout`, {});
     localStorage.removeItem('token');
-    localStorage.removeItem('personId');
+    localStorage.removeItem('personSVNR');
     console.log('logged out');
   }
   public isLoggedIn() {

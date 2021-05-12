@@ -1,6 +1,9 @@
 import { Component, VERSION } from '@angular/core';
 import { AuthenticationService } from './shared/authentication.service';
+import { PeopleService } from './shared/people.service';
+import { PersonFactory } from './shared/person-factory';
 import { Vaccination } from './shared/vaccination';
+import { VaccinationService } from './shared/vaccination.service';
 
 @Component({
   selector: 'kwm-root',
@@ -9,9 +12,17 @@ import { Vaccination } from './shared/vaccination';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  constructor(private authService: AuthenticationService) {}
+  personSVNR = null;
+  person = PersonFactory.empty();
+  constructor(
+    private authService: AuthenticationService,
+    private kwm: AuthenticationService,
+    private kwm2: PeopleService
+  ) {}
+
   isLoggedIn() {
     return this.authService.isLoggedIn();
+   
   }
   getLoginLabel() {
     if (this.isLoggedIn()) {
@@ -19,6 +30,15 @@ export class AppComponent {
     } else {
       return 'Login';
     }
+  }
+
+  isAdmin() {
+    this.personSVNR = this.kwm.getCurrentPersonSVNR();
+    this.kwm2.getSingle(this.personSVNR).subscribe(p => (this.person = p));
+
+
+    console.log(this.personSVNR);
+    return true;
   }
 
   listOn = true;
