@@ -1,5 +1,5 @@
 
-      <div class="content">
+      <div *ngIf="person.vaccination_id != null" class="content">
         <p><b>{{person.firstName}} {{person.lastName}}</b></p>
         <p>SV-NR: {{person.sv_nr}}</p>
         <p><b>Angemeldet für Impftermin:</b></p>

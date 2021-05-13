@@ -3,7 +3,7 @@
 <a routerLink="vaccinations" routerLinkActive="active" class="item">Impfungen</a>
 <a *ngIf="isLoggedIn() && isAdmin()  " routerLink="admin" routerLinkActive="active" class="item">Administration</a>
 <a *ngIf="isLoggedIn() && isAdmin() " routerLink="registrations" routerLinkActive="active" class="item">Anmeldungen</a>
-<a *ngIf="isLoggedIn && isAdmin() == false" routerLink="profile" routerLinkActive="active" class="item">Profil</a>
+<a *ngIf="isLoggedIn() && isAdmin() == false" routerLink="profile" routerLinkActive="active" class="item">Profil</a>
 <a routerLink="login" routerLinkActive="active" class="item">{{getLoginLabel()}}</a>
 </div>
 <router-outlet></router-outlet>

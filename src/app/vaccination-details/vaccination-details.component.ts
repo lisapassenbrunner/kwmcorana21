@@ -14,6 +14,7 @@ import { AuthenticationService } from "../shared/authentication.service";
   styleUrls: ["./vaccination-details.component.css"]
 })
 export class VaccinationDetailsComponent implements OnInit {
+  personAdmin = null;
   vaccination: Vaccination = VaccinationFactory.empty();
   person: Person = PersonFactory.empty();
   isRegistrated = false;
@@ -59,7 +60,16 @@ export class VaccinationDetailsComponent implements OnInit {
     }
   }
 
-  
+    isAdmin() {
+      this.personAdmin = this.authService.getCurrentPersonAdmin();
+    // this.kwm2.getSingle(this.personSVNR).subscribe(p => (this.person = p));
+
+
+      console.log(this.personAdmin);
+      if(this.personAdmin == "true"){
+        return true;
+      }else return false;
+    }
 
   /*
   @Input() vaccination: Vaccination

@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   template: `
 <div class="ui container">
 <h1>Anmeldung zur Impfung Österreich</h1>
-<p>Impfungen Österreich</p>
+<p>Melden Sie sich hier für die Corana Impfung in Österreich an</p>
 <a routerLink="../vaccinations" class="ui red button">
 Impfungen ansehen
 </a>
