@@ -37,7 +37,6 @@ export class AppComponent {
    // this.kwm2.getSingle(this.personSVNR).subscribe(p => (this.person = p));
 
 
-    console.log(this.personAdmin);
     if(this.personAdmin == "true"){
       return true;
     }else return false;

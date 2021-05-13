@@ -18,6 +18,7 @@ export class VaccinationDetailsComponent implements OnInit {
   vaccination: Vaccination = VaccinationFactory.empty();
   person: Person = PersonFactory.empty();
   isRegistrated = false;
+   SVNR = "";
 
   constructor(
     private kwm: VaccinationService,
@@ -28,8 +29,8 @@ export class VaccinationDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.kwm2.getSingle("3121").subscribe(p => (this.person = p));
-    console.log(this.vaccination);
+    this.SVNR = this.authService.getCurrentPersonSVNR();
+    this.kwm2.getSingle(this.SVNR).subscribe(p => (this.person = p));
     const params = this.route.snapshot.params;
     this.kwm.getSingle(params["code"]).subscribe(b => (this.vaccination = b));
 
@@ -64,8 +65,6 @@ export class VaccinationDetailsComponent implements OnInit {
       this.personAdmin = this.authService.getCurrentPersonAdmin();
     // this.kwm2.getSingle(this.personSVNR).subscribe(p => (this.person = p));
 
-
-      console.log(this.personAdmin);
       if(this.personAdmin == "true"){
         return true;
       }else return false;

@@ -1,3 +1,4 @@
+<div class="box">
 <div *ngIf="!isLoggedIn()">
   <h1>Login</h1>
   <form class="ui large form" [formGroup]="loginForm" (ngSubmit)="login()">
@@ -29,7 +30,10 @@ loginForm.get('password').touched)" class="ui negative message">
 [disabled]="loginForm.invalid">Login</button>
   </form>
 </div>
+
 <div *ngIf="isLoggedIn()">
+  <h1>Logout</h1>
   <button type="button" class="ui button"
 (click)="logout()">Logout</button>
+</div>
 </div>
