@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from '../shared/authentication.service';
 import { PeopleService } from '../shared/people.service';
 import { Person } from '../shared/person';
 import { PersonFactory } from '../shared/person-factory';
@@ -10,10 +11,11 @@ import { PersonFactory } from '../shared/person-factory';
   styleUrls: ['./person-details.component.css']
 })
 export class PersonDetailsComponent implements OnInit {
-
+  SVNR = "";
   person: Person = PersonFactory.empty();
 
   constructor(
+    private authService: AuthenticationService,
     private kwm: PeopleService,
     private router: Router,
     private route: ActivatedRoute
@@ -23,7 +25,8 @@ export class PersonDetailsComponent implements OnInit {
     //hier muss svnr noch mitgegeben werden, nachdem eingeloggt
     console.log(this.person);
     const params = this.route.snapshot.params;
-    this.kwm.getSingle("3121").subscribe(p => (this.person = p));
+    this.SVNR = this.authService.getCurrentPersonSVNR();
+    this.kwm.getSingle(this.SVNR).subscribe(p => (this.person = p));
   }
 
 

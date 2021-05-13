@@ -2,6 +2,7 @@ import { assertNotNull } from '@angular/compiler/src/output/output_ast';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from '../shared/authentication.service';
 import { PeopleService } from '../shared/people.service';
 import { Person } from '../shared/person';
 import { PersonFactory } from '../shared/person-factory';
@@ -22,13 +23,15 @@ export class RegistrationFormComponent implements OnInit {
   person = PersonFactory.empty();
   places: FormArray;
   people: FormArray;
+  SVNR = "";
 
   constructor(
     private fb: FormBuilder,
     private kwm: VaccinationService,
     private kwm2: PeopleService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService: AuthenticationService,
   ) {}
 
   ngOnInit() {
@@ -39,7 +42,8 @@ export class RegistrationFormComponent implements OnInit {
       this.vaccination = vaccination;
     });
 
-    this.kwm2.getSingle('3121').subscribe(person => {
+    this.SVNR = this.authService.getCurrentPersonSVNR();
+    this.kwm2.getSingle(this.SVNR).subscribe(person => {
       this.person = person;
     });
   }
