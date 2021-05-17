@@ -62,8 +62,11 @@ export class VaccinationFormComponent implements OnInit {
       ],
       registrations: this.vaccination.registrations,
       places: this.places,
+      people: null,
       date: this.vaccination.date
     });
+
+    console.log(this.vaccinationForm['vaccine']);
 
     this.vaccinationForm.statusChanges.subscribe(() =>
       this.updateErrorMessages()
@@ -105,7 +108,7 @@ export class VaccinationFormComponent implements OnInit {
     /*this.vaccinationForm.value.places = this.vaccinationForm.value.places.filter(
       thumbnail => thumbnail.url*/
     //);
-
+    console.log(this.vaccinationForm.value);
     const vaccination: Vaccination = VaccinationFactory.fromObject(
       this.vaccinationForm.value
     );
