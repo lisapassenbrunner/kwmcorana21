@@ -13,7 +13,7 @@
       <p>Datum der Impfung {{person.vaccination[0].date | date:'longDate'}}</p>
       <p *ngIf="person.vaccinated == false && person.vaccination_id != null">Impfung erhalten: Nein</p>
       <p *ngIf="person.vaccinated == true && person.vaccination_id != null">Impfung erhalten: Ja</p>
-      <button [routerLink]="['/vaccinations', person.vaccination[0].code]" class="ui tiny grey button">Details zur Impfung</button>
+      <button *ngIf="person.vaccination_id != null"[routerLink]="['/vaccinations', person.vaccination[0].code]" class="ui tiny grey button">Details zur Impfung</button>
     </div>
   </div>
 </div>
