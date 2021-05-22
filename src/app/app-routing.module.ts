@@ -4,11 +4,10 @@ import { VaccinationDetailsComponent } from "./vaccination-details/vaccination-d
 import { VaccinationListComponent } from "./vaccination-list/vaccination-list.component";
 import { HomeComponent } from "./home/home.component";
 import { VaccinationFormComponent } from "./vaccination-form/vaccination-form.component";
-//import { RegistrationFormComponent } from "./registration-form/registration-form.component";
+import { RegistrationFormComponent } from "./registration-form/registration-form.component";
 import { PersonListComponent } from "./person-list/person-list.component";
 import { PersonDetailsComponent } from "./person-details/person-details.component";
 import { PersonRegistrationDetailsComponent } from "./person-registration-details/person-registration-details.component";
-import { RegistrationFormComponent } from "./registration-form/registration-form.component";
 import { LoginComponent } from "./login/login.component";
 
 const routes: Routes = [
@@ -24,6 +23,7 @@ const routes: Routes = [
   { path: "profile", component: PersonDetailsComponent},
   { path: "login", component: LoginComponent},
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],

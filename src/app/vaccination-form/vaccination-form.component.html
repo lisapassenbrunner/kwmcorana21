@@ -39,7 +39,6 @@
       <label>Anzahl der Anmeldungen</label>
       <input formControlName="registrations">
     </div>
-
     <div class="field">
       <div formArrayName="places">
         <div class="fields" *ngFor="let control of places?.controls; index as
@@ -74,7 +73,6 @@ p; last as l" [formGroupName]="p">
       <div *ngIf="errors.places" class="ui negative message">{{ errors.places
         }}</div>
     </div>
-
     <button type="submit" class="ui button"
 >Speichern</button>
   </form>

@@ -16,12 +16,14 @@ export class AuthenticationService {
     'https://kwmcorana.s1810456024.student.kwmhgb.at/api/auth';
 
   constructor(private http: HttpClient) {}
+
   login(email: string, password: string) {
     return this.http.post(`${this.api}/login`, {
       email: email,
       password: password
     });
   }
+
   public getCurrentPersonSVNR() {
     return localStorage.getItem('personSVNR');
   }
@@ -31,28 +33,22 @@ export class AuthenticationService {
   }
 
   public setLocalStorage(token: string) {
-    console.log('Storing token');
-    console.log(jwt_decode(token));
     const decodedToken = jwt_decode(token) as Token;
-    console.log(decodedToken);
-    console.log(decodedToken.person.sv_nr);
-    console.log(decodedToken.person.administrator);
     localStorage.setItem('token', token);
     localStorage.setItem('personSVNR', decodedToken.person.sv_nr);
     localStorage.setItem('personAdmin', decodedToken.person.administrator);
   }
+
   logout() {
     this.http.post(`${this.api}/logout`, {});
     localStorage.removeItem('token');
     localStorage.removeItem('personSVNR');
     localStorage.removeItem('personAdmin');
-    console.log('logged out');
   }
+
   public isLoggedIn() {
     if (localStorage.getItem('token')) {
       let token: string = localStorage.getItem('token');
-      //console.log(token);
-      //console.log(jwt_decode(token));
       const decodedToken = jwt_decode(token) as Token;
       let expirationDate: Date = new Date(0);
       expirationDate.setUTCSeconds(decodedToken.exp);

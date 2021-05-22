@@ -66,15 +66,12 @@ export class VaccinationFormComponent implements OnInit {
       date: this.vaccination.date
     });
 
-    console.log(this.vaccinationForm['vaccine']);
-
     this.vaccinationForm.statusChanges.subscribe(() =>
       this.updateErrorMessages()
     );
   }
 
   buildPlacesArray() {
-   
     this.places = this.fb.array([]);
     for (let place of this.vaccination.place) {
       let fg = this.fb.group({
@@ -104,19 +101,12 @@ export class VaccinationFormComponent implements OnInit {
   }
 
   submitForm() {
-    // filter empty values
-    /*this.vaccinationForm.value.places = this.vaccinationForm.value.places.filter(
-      thumbnail => thumbnail.url*/
-    //);
-    console.log(this.vaccinationForm.value);
     const vaccination: Vaccination = VaccinationFactory.fromObject(
       this.vaccinationForm.value
     );
-    //deep copy - did not work without??
     vaccination.place = this.vaccinationForm.value.places;
     console.log(vaccination);
-    //just copy the authors
-    //vaccination.people = this.vaccination.people;
+  
     if (this.isUpdatingVaccination) {
       this.kwm.update(vaccination).subscribe(res => {
         this.router.navigate(['../../vaccinations', vaccination.code], {
@@ -124,8 +114,6 @@ export class VaccinationFormComponent implements OnInit {
         });
       });
     } else {
-      //vaccination.user_id = 1; // jsut for testing
-      // console.log(vaccination);
       this.kwm.create(vaccination).subscribe(res => {
         this.vaccination = VaccinationFactory.empty();
         this.vaccinationForm.reset(VaccinationFactory.empty());
@@ -133,9 +121,9 @@ export class VaccinationFormComponent implements OnInit {
       });
     }
   }
+
   updateErrorMessages() {
     console.log('Is invalid? ' + this.vaccinationForm.invalid);
-
     this.errors = {};
     for (const message of VaccinationFormErrorMessages) {
       const control = this.vaccinationForm.get(message.forControl);

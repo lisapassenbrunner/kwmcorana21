@@ -2,27 +2,18 @@
   <div class="ui grid" *ngIf="person">
     <div class="twelve wide column">
       <h1 class="ui header">Information zur Person</h1>
-      
       <div class="ui divider"></div>
       <h3 class="ui header">{{ person.firstName }} {{ person.lastName }}</h3>
-
       <p>Geboren am: {{person.dateOfBirth | date:'longDate'}}</p>
-        <p>E-Mail: {{person.email}}</p>
-        <p>Telefon: {{person.phoneNumber}}</p>
-        <p>SV-NR: {{person.sv_nr}}</p>
-        <h3 *ngIf="person.vaccination_id != null" class="ui header">Angemeldet für Impftermin:</h3>
-        <p *ngIf="person.vaccination_id != null">Code der Impfung: {{person.vaccination[0].code}}</p>
-        <p>Datum der Impfung {{person.vaccination[0].date | date:'longDate'}}</p>
-        <p *ngIf="person.vaccinated == false && person.vaccination_id != null">Impfung erhalten: Nein</p>
-        <p *ngIf="person.vaccinated == true && person.vaccination_id != null">Impfung erhalten: Ja</p>
-     
-     <button [routerLink]="['/vaccinations', person.vaccination[0].code]" class="ui tiny grey button">Details zur Impfung</button>
-
+      <p>E-Mail: {{person.email}}</p>
+      <p>Telefon: {{person.phoneNumber}}</p>
+      <p>SV-NR: {{person.sv_nr}}</p>
+      <h3 *ngIf="person.vaccination_id != null" class="ui header">Angemeldet für Impftermin:</h3>
+      <p *ngIf="person.vaccination_id != null">Code der Impfung: {{person.vaccination[0].code}}</p>
+      <p>Datum der Impfung {{person.vaccination[0].date | date:'longDate'}}</p>
+      <p *ngIf="person.vaccinated == false && person.vaccination_id != null">Impfung erhalten: Nein</p>
+      <p *ngIf="person.vaccinated == true && person.vaccination_id != null">Impfung erhalten: Ja</p>
+      <button [routerLink]="['/vaccinations', person.vaccination[0].code]" class="ui tiny grey button">Details zur Impfung</button>
     </div>
-    <div class="twelve wide column">
-   
-    
-    </div>
-
   </div>
 </div>

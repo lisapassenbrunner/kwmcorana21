@@ -1,14 +1,12 @@
 import { Component, VERSION } from '@angular/core';
 import { AuthenticationService } from './shared/authentication.service';
-import { PeopleService } from './shared/people.service';
 import { PersonFactory } from './shared/person-factory';
 import { Vaccination } from './shared/vaccination';
-import { VaccinationService } from './shared/vaccination.service';
+
 
 @Component({
   selector: 'kwm-root',
-  // hier wird die Komponente vaccination-list aufgerufen
-  //welche Ansicht soll gerade aktiv sein
+  //aktuelle Komponente
   templateUrl: './app.component.html'
 })
 export class AppComponent {
@@ -17,7 +15,6 @@ export class AppComponent {
   constructor(
     private authService: AuthenticationService,
     private kwm: AuthenticationService,
-    private kwm2: PeopleService
   ) {}
 
   isLoggedIn() {
@@ -34,8 +31,6 @@ export class AppComponent {
 
   isAdmin() {
     this.personAdmin = this.kwm.getCurrentPersonAdmin();
-   // this.kwm2.getSingle(this.personSVNR).subscribe(p => (this.person = p));
-
 
     if(this.personAdmin == "true"){
       return true;

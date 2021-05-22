@@ -7,9 +7,7 @@ import { Person } from '../shared/person';
   styleUrls: ['./person-list-item.component.css']
 })
 export class PersonListItemComponent implements OnInit {
-@Input() person: Person;
+  @Input() person: Person;
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

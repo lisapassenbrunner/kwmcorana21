@@ -14,7 +14,6 @@ import { VaccinationFormComponent } from "./vaccination-form/vaccination-form.co
 import { LOCALE_ID } from "@angular/core";
 import { registerLocaleData } from "@angular/common";
 import localeDEAT from "@angular/common/locales/de-AT";
-//import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { PersonListComponent } from './person-list/person-list.component';
 import { PeopleService } from './shared/people.service';
 import { PersonDetailsComponent } from './person-details/person-details.component';
@@ -43,7 +42,6 @@ registerLocaleData(localeDEAT);
     VaccinationDetailsComponent,
     HomeComponent,
     VaccinationFormComponent,
-   // RegistrationFormComponent,
     PersonListComponent,
     PersonDetailsComponent,
     PersonRegistrationDetailsComponent,

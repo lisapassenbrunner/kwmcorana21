@@ -22,12 +22,8 @@ export class PersonDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    //hier muss svnr noch mitgegeben werden, nachdem eingeloggt
-    console.log(this.person);
     const params = this.route.snapshot.params;
     this.SVNR = this.authService.getCurrentPersonSVNR();
     this.kwm.getSingle(this.SVNR).subscribe(p => (this.person = p));
   }
-
-
 }

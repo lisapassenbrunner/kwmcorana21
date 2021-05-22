@@ -19,7 +19,6 @@ export class JwtInterceptorService implements HttpInterceptor {
       tap(
         (event: HttpEvent<any>) => {
           if (event instanceof HttpResponse) {
-            // do stuff with response if you want
           }
         },
         (err: any) => {

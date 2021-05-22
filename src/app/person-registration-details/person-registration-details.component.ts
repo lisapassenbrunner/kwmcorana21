@@ -11,8 +11,6 @@ import { Vaccination } from '../shared/vaccination';
   styleUrls: ['./person-registration-details.component.css']
 })
 export class PersonRegistrationDetailsComponent implements OnInit {
-
-  
   person: Person = PersonFactory.empty();
 
   constructor(
@@ -27,15 +25,11 @@ export class PersonRegistrationDetailsComponent implements OnInit {
   }
 
   checkVaccination(sv_nr) {
-   // for (let person of this.person) {
       if (this.person.sv_nr == sv_nr) {
         if (this.person.vaccinated == false) {
           this.person.vaccinated = true;
         } else this.person.vaccinated = false;
-        console.log(this.person);
         this.kwm.update(this.person).subscribe();
       }
-    //}
   }
-
 }

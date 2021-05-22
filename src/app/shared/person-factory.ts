@@ -1,50 +1,20 @@
-import { Person } from "./person";
-import { Place } from "./place";
-import { Vaccination } from "./vaccination";
+import { Person } from './person';
+import { Place } from './place';
+import { Vaccination } from './vaccination';
 
 export class PersonFactory {
   static empty(): Person {
     return new Person(
       0,
-      "",
-      "",
-      "",
-      "",
+      '',
+      '',
+      '',
+      '',
       new Date(),
-      "",
-      "",
-      "",
+      '',
+      '',
+      '',
       null,
-    
-      /*
-      [
-        {
-          id: 0,
-          code: "",
-          date: new Date(),
-          time: "",
-          max_registrations: 0,
-          registrations: 0,
-          place: [
-        {
-          id: 0,
-          title: "",
-          plz: 0,
-          place: "",
-          street: "",
-          number: 0,
-          state: "",
-          district: ""
-        },
-      ],
-      
-      people:[],
-      
-          vaccine: "",
-          description: ""
-        }
-      
-      ], */
       null,
       false
     );
@@ -57,7 +27,7 @@ export class PersonFactory {
       rawPerson.firstName,
       rawPerson.lastName,
       rawPerson.gender,
-      typeof rawPerson.dateOfBirth === "string"
+      typeof rawPerson.dateOfBirth === 'string'
         ? new Date(rawPerson.dateOfBirth)
         : rawPerson.dateOfBirth,
       rawPerson.email,

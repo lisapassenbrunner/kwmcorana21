@@ -15,21 +15,17 @@
       <div class="date"> Datum:
         {{vaccination.date | date:'longDate'}} </div>
       <div>Zugang zur Impfung zwischen: {{ vaccination.time}}</div>
-
       <h1 class="ui header">Persönliche Daten
       </h1>
      <h3 class="ui header">{{ person.firstName }} {{ person.lastName }}</h3>
-
       <p>Geboren am: {{person.dateOfBirth | date:'longDate'}}</p>
         <p>E-Mail: {{person.email}}</p>
         <p>Telefon: {{person.phoneNumber}}</p>
         <p>SV-NR: {{person.sv_nr}}</p>
-        
     <div class="twelve wide column">
       <button class="ui tiny blue button" (click)="updateRegistration()">Anmelden</button>
       <button [routerLink]="['/vaccinations', vaccination.code]" class="ui tiny grey button">Zurück zur Übersicht</button>
     </div>
-    
   </div>
 </div>
 

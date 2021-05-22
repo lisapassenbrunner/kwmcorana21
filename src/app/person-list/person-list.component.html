@@ -1,14 +1,10 @@
 <h3 class="ui header">Angemeldete Personen</h3>
 <div class="ui middle aligned selection divided list">
-  <a *ngFor="let person of people" class="item kwm-person-list-item" [person]="person"
-    [routerLink]="person.sv_nr">
+  <a *ngFor="let person of people" class="item kwm-person-list-item" [person]="person" [routerLink]="person.sv_nr">
   </a>
-
   <div *ngIf="!people" class="ui active dimmer">
     <div class="ui large text loader">Daten werden geladen...</div>
   </div>
   <p *ngIf="people && !people.length">Es wurden noch keine Anmeldungen
     gefunden.</p>
-
 </div>
-

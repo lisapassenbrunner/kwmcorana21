@@ -10,7 +10,6 @@ import { Vaccination } from "../shared/vaccination";
 export class VaccinationListItemComponent implements OnInit {
   @Input() vaccination: Vaccination;
   currentDate = new Date();
- 
 
   ngOnInit() {
    

@@ -32,7 +32,6 @@ export class VaccinationFactory {
           email: '',
           phoneNumber: '',
           administrator: '',
-          // public vaccination?: Vaccination[],
           vaccinated: false
         }
       ],
@@ -42,29 +41,19 @@ export class VaccinationFactory {
   }
 
   static fromObject(rawVaccination: any): Vaccination {
-    
     return new Vaccination(
       rawVaccination.id,
       rawVaccination.code,
       typeof rawVaccination.date === 'string'
         ? new Date(rawVaccination.date)
         : rawVaccination.date,
-        rawVaccination.time,
-        rawVaccination.max_registrations,
-         rawVaccination.registrations,
-         rawVaccination.places,
-         rawVaccination.people,
-         rawVaccination.vaccine,
-      rawVaccination.description,
-      
-      
-      
-     
-      
-      
-      
-      
+      rawVaccination.time,
+      rawVaccination.max_registrations,
+      rawVaccination.registrations,
+      rawVaccination.places,
+      rawVaccination.people,
+      rawVaccination.vaccine,
+      rawVaccination.description
     );
-     
   }
 }

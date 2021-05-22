@@ -1,4 +1,5 @@
-<div *ngIf="vaccination.max_registrations > vaccination.registrations && currentDate != vaccination.date" class="content">
+<div *ngIf="vaccination.max_registrations > vaccination.registrations && currentDate != vaccination.date"
+  class="content">
   <div class="header">{{ vaccination.description }}</div>
   <div class="description"> Impfstoff: {{ vaccination.vaccine }} </div>
   <div class="code"> Code: {{ vaccination.code }} </div>
@@ -8,4 +9,4 @@
     <div class="time">Uhrzeit: {{ vaccination.time }}</div>
     <div *ngIf="vaccination.place && vaccination.place[0]">
       Ort: {{vaccination.place[0].place}}</div>
-</div>
+  </div>

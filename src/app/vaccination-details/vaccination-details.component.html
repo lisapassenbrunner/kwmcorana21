@@ -2,7 +2,6 @@
   <div class="ui grid" *ngIf="vaccination">
     <div class="twelve wide column">
       <h1 class="ui header">Impfung am {{vaccination.date | date:'longDate'}}
-
       </h1>
       <h3 class="ui header">Impfstoff: {{ vaccination.vaccine }}</h3>
       <p>Anzahl der möglichen Registrierungen: {{ vaccination.max_registrations }}</p>
@@ -14,27 +13,17 @@
         <p>{{vaccination.place[0].street}} {{vaccination.place[0].number}}</p>
         <p>{{vaccination.place[0].plz}} {{vaccination.place[0].place}}</p>
       </div>
-
-
       <h3 class="ui header">Zeitpunkt:</h3>
       <div class="date"> Datum:
         {{vaccination.date | date:'longDate'}} </div>
       <div>Zugang zur Impfung zwischen: {{ vaccination.time}}</div>
-
-
-
       <div class="ui grid">
         <div class="four wide column">
 
         </div>
       </div>
-
       <h3 class="ui header">Beschreibung</h3>
       {{ vaccination.description }}
-
-    
-
-
     </div>
     <div class="twelve wide column">
       <button [routerLink]="'/vaccinations'" class="ui tiny grey button">Zurück zur Übersicht</button>
@@ -44,9 +33,5 @@
       <button  *ngIf="authService.isLoggedIn() && isAdmin()" class="ui tiny yellow labeled icon button" [routerLink]="['../../admin', vaccination?.code]">
         <i class="write icon"></i>Impfung Bearbeiten</button>
     </div>
-
-
-    
-
   </div>
 </div>
