@@ -35,9 +35,7 @@ export class RegistrationFormComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // console.log(this.vaccination);
     const params = this.route.snapshot.params;
-    console.log(params['code']);
     this.kwm.getSingle(params['code']).subscribe(vaccination => {
       this.vaccination = vaccination;
     });
