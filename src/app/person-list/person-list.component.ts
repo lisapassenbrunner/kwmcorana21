@@ -20,7 +20,6 @@ export class PersonListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log('Hi');
     this.kwm.getAll().subscribe(res => (this.people = res));
     const params = this.route.snapshot.params;
   }

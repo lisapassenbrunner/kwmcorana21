@@ -16,16 +16,12 @@ import { VaccinationService } from '../shared/vaccination.service';
   styleUrls: ['./registration-form.component.css']
 })
 export class RegistrationFormComponent implements OnInit {
-  registrationForm: FormGroup;
   isRegistrating = false;
   vaccination: Vaccination = VaccinationFactory.empty();
   person = PersonFactory.empty();
-  places: FormArray;
-  people: FormArray;
   SVNR = "";
 
   constructor(
-    private fb: FormBuilder,
     private kwm: VaccinationService,
     private kwm2: PeopleService,
     private router: Router,
@@ -48,9 +44,6 @@ export class RegistrationFormComponent implements OnInit {
   updateRegistration() {
     this.person.vaccination_id = this.vaccination.id;
     this.vaccination['people'].push(this.person);
-
-    
-
     this.kwm.updateRegistration(this.vaccination).subscribe(res => {
       this.router.navigate(['../../vaccinations', this.vaccination.code], {
         relativeTo: this.route
