@@ -37,20 +37,4 @@ export class AppComponent {
     }else return false;
   }
 
-  listOn = true;
-  detailsOn = false;
-
-  vaccination: Vaccination;
-
-  //Events abfangen zur Anzeige der zwei Views
-  showList() {
-    this.listOn = true;
-    this.detailsOn = false;
-  }
-
-  showDetails(vaccination: Vaccination) {
-    this.vaccination = vaccination;
-    this.listOn = false;
-    this.detailsOn = true;
-  }
 }
