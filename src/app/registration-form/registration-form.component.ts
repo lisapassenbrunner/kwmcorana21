@@ -16,7 +16,6 @@ import { VaccinationService } from '../shared/vaccination.service';
   styleUrls: ['./registration-form.component.css']
 })
 export class RegistrationFormComponent implements OnInit {
-  //@Input() vaccination: Vaccination;
   registrationForm: FormGroup;
   isRegistrating = false;
   vaccination: Vaccination = VaccinationFactory.empty();
@@ -48,7 +47,6 @@ export class RegistrationFormComponent implements OnInit {
 
   updateRegistration() {
     this.person.vaccination_id = this.vaccination.id;
-    console.log(this.person.vaccination_id);
     this.vaccination['people'].push(this.person);
 
     
@@ -58,8 +56,5 @@ export class RegistrationFormComponent implements OnInit {
         relativeTo: this.route
       });
     });
-
-    
-    console.log(this.vaccination);
   }
 }
